@@ -1,0 +1,84 @@
+{
+  "foods": [
+    {
+      "id": "F001",
+      "name": "Combo cô đơn",
+      "category": "Combo",
+      "price": 79000,
+      "description": "1 gà rán + 1 mì ý hoặc 1 hamburger + 1 nước",
+      "image": "images/combo_co_don.jpg",
+      "ingredients": ["Gà rán", "Mì ý", "Hamburger", "Nước uống"],
+      "isBestSeller": true
+    },
+    {
+      "id": "F002",
+      "name": "Gà x2",
+      "category": "Gà rán",
+      "price": 65000,
+      "description": "2 miếng gà rán giòn tan, đậm vị truyền thống",
+      "image": "images/ga_x2.jpg",
+      "ingredients": ["Đùi gà", "Bột chiên giòn", "Gia vị đặc biệt"],
+      "isBestSeller": true
+    },
+    {
+      "id": "F003",
+      "name": "Mì Ý sốt bò bằm",
+      "category": "Món chính",
+      "price": 35000,
+      "description": "Mì Ý sợi mềm, phủ sốt bò bằm đậm đà",
+      "image": "images/my_y.jpg",
+      "ingredients": ["Mì Ý", "Sốt cà", "Thịt bò", "Phô mai"],
+      "isBestSeller": true
+    },
+    {
+      "id": "F004",
+      "name": "Hamburger gà chiên",
+      "category": "Burger",
+      "price": 35000,
+      "description": "Bánh mì kẹp gà giòn, rau và sốt đặc trưng",
+      "image": "images/hamburger.jpg",
+      "ingredients": ["Bánh mì", "Gà rán", "Xà lách", "Sốt"],
+      "isBestSeller": true
+    },
+    {
+      "id": "F005",
+      "name": "Trà đào kem cheese",
+      "category": "Đồ uống",
+      "price": 30000,
+      "description": "Trà đào mát lạnh, phủ kem cheese béo mịn",
+      "image": "images/tra_dao_cheese.jpg",
+      "ingredients": ["Trà đào", "Kem cheese", "Đá"],
+      "isBestSeller": true
+    },
+    {
+      "id": "F006",
+      "name": "Combo cặp đôi",
+      "category": "Combo",
+      "price": 129000,
+      "description": "2 gà rán + 1 mì ý + 1 hamburger + khoai + 2 nước",
+      "image": "images/combo_cap_doi.jpg",
+      "ingredients": ["Gà rán", "Mì ý", "Hamburger", "Khoai tây", "Nước uống"],
+      "isBestSeller": false
+    },
+    {
+      "id": "F007",
+      "name": "Combo gia đình",
+      "category": "Combo",
+      "price": 179000,
+      "description": "3 gà rán + 2 mì ý + 1 hamburger + 2 khoai + 3 nước",
+      "image": "images/combo_gia_dinh.jpg",
+      "ingredients": ["Gà rán", "Mì ý", "Hamburger", "Khoai tây", "Nước uống"],
+      "isBestSeller": false
+    },
+    {
+      "id": "F008",
+      "name": "Combo tiệc vui",
+      "category": "Combo",
+      "price": 279000,
+      "description": "5 gà rán + 3 mì ý + 2 hamburger + 3 khoai + 5 nước",
+      "image": "images/combo_tiec_vui.jpg",
+      "ingredients": ["Gà rán", "Mì ý", "Hamburger", "Khoai tây", "Nước uống"],
+      "isBestSeller": false
+    }
+  ]
+}
