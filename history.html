@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lịch sử đơn hàng</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="history-container">
+    <h2>Lịch sử đơn hàng</h2>
+
+    <div class="order-history-list">
+      <!-- Mỗi đơn hàng là 1 khối tóm tắt -->
+      <div class="order-summary">
+        <p><strong>Mã đơn:</strong> #ORDER001</p>
+        <p><strong>Ngày đặt:</strong> 06/06/2025</p>
+        <p><strong>Tổng tiền:</strong> 125,000đ</p>
+        <button class="btn" onclick="window.location.href='order.html?order_id=ORDER001'">Xem chi tiết</button>
+      </div>
+
+      <div class="order-summary">
+        <p><strong>Mã đơn:</strong> #ORDER002</p>
+        <p><strong>Ngày đặt:</strong> 04/06/2025</p>
+        <p><strong>Tổng tiền:</strong> 89,000đ</p>
+        <button class="btn" onclick="window.location.href='order.html?order_id=ORDER002'">Xem chi tiết</button>
+      </div>
+    </div>
+
+    <div class="history-buttons">
+      <button class="btn" onclick="window.location.href='index.html'">Quay về trang chủ</button>
+    </div>
+  </div>
+</body>
+</html>
