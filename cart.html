@@ -1,0 +1,42 @@
+<!-- KFJoli-ordering/cart.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giỏ hàng - KFJoli</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Giỏ hàng của bạn</h1>
+  </header>
+
+  <main class="cart-container">
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Hình ảnh</th>
+          <th>Món ăn</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+          <th>Xóa</th>
+        </tr>
+      </thead>
+      <tbody id="cart-body">
+        <!-- Các món sẽ được JS render ở đây -->
+      </tbody>
+    </table>
+
+    <div class="cart-summary">
+      <p><strong>Tổng cộng:</strong> <span id="total-price">0</span> đ</p>
+      <div class="cart-buttons">
+        <a href="index.html" class="btn">Tiếp tục đặt món</a>
+        <a href="checkout.html" class="btn btn-primary" id="checkout-btn">Thanh toán</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/cart.js"></script>
+</body>
+</html>

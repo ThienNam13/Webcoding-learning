@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Đăng ký tài khoản</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Đăng ký</h2>
+    <form id="registerForm" method="POST" action="php/auth/register.php">
+      <input type="text" name="fullname" placeholder="Họ và tên" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Mật khẩu" required />
+      <input type="password" name="confirm_password" placeholder="Xác nhận mật khẩu" required />
+      <button type="submit">Tạo tài khoản</button>
+    </form>
+  </div>
+</body>
+</html>

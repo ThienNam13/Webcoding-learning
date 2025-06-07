@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Đăng nhập</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      color: #333;
+      padding: 2rem;
+    }
+    .form-container {
+      max-width: 320px;
+      margin: auto;
+      padding: 2rem;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #ff7a00;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #e66a00;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Đăng nhập</h2>
+    <form id="loginForm">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Mật khẩu" required />
+      <button type="submit">Đăng nhập</button>
+    </form>
+  </div>
+</body>
+</html>
