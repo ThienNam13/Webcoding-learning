@@ -1,20 +1,40 @@
+/* Reset & Base Styling */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-html {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
+html, body {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  background-color: #fffaf5;
+  color: #333;
+  line-height: 1.5;
+}
 .clear {
   clear: both;
+}
+
+/* ========== BIẾN MÀU CHỦ ĐẠO ========== */
+:root {
+  --main-orange: #ff8800;
+  --main-orange-dark: #e67300;
+  --bg-light: #fffaf5;
+  --text-dark: #333;
+  --border-light: #f0d5b9;
+}
+
+/* ========== TIÊU ĐỀ ========== */
+h1, h2, h3 {
+  color: var(--main-orange);
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 #app {
 }
 
-/* Header */
+* Header *
 #header {
   position: relative;
 }
@@ -168,7 +188,9 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}body {
+}
+
+body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #fffaf5;
   margin: 0;
