@@ -1,0 +1,112 @@
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #FF6600;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-size: 15px;
+    }
+
+    th {
+      background-color: #ffe0cc;
+      color: #333;
+    }
+
+    .actions button {
+      padding: 8px 12px;
+      margin: 0 4px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .edit-btn {
+      background-color: #FFA500;
+      color: white;
+    }
+
+    .edit-btn:hover {
+      background-color: #e69500;
+    }
+
+    .delete-btn {
+      background-color: #FF4444;
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background-color: #cc0000;
+    }
+
+    .total {
+      margin-top: 25px;
+      text-align: right;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+    }
+
+    @media (max-width: 600px) {
+      .cart-container {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        display: none;
+      }
+
+      td {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      .cart-total {
+        text-align: left;
+      }
+    }
