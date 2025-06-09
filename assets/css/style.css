@@ -1,10 +1,289 @@
-/* === FORM ĐĂNG NHẬP / ĐĂNG KÝ === */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fffaf3;
+* {
+  padding: 0;
   margin: 0;
-  padding: 2rem;
+  box-sizing: border-box;
 }
+html {
+  font-family: sans-serif;
+}
+
+body{
+   background-color: #F5F5F5;
+}
+
+.clear {
+  clear: both;
+}
+
+#app {}
+
+/* HEADER */
+#header {
+
+}
+
+/* Nav */
+
+#nav{
+  min-height: 106px;
+}
+
+.container-nav {
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 100;
+  display:block;
+  font-weight: 700;
+  font-size: 20px;
+  width: 100%;
+  background-color:#fff;
+  list-style-type: none;
+}
+
+.container-nav .logo-mini img{
+  float: left;
+  padding:10px 20px;
+  height: 60px;
+  width: auto;
+  background-color: #000;
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container-nav > li {
+  display: inline-block;
+}
+
+.container-nav li {
+  position: relative;
+}
+
+.container-nav > li > a {
+  text-transform: uppercase;
+}
+
+.container-nav li a {
+  color: #000;
+  text-decoration: none;
+  line-height: 60px;
+  padding:0 30px;
+}
+
+.container-nav > li:hover > a {
+  color: red;
+  display: block;
+}
+
+.account{
+  position: fixed;
+  right:0;
+  margin-right: 20px;
+  padding: 10px 10px;
+  font-size: 30px;
+  z-index: 101;
+}
+
+.account button{
+  padding: 10px 0;
+  background-color: #fff;
+  border-radius: 200px;
+  border: none;
+}
+
+.account button a{
+  font-size: 20px;
+  text-decoration: none;
+  color:#000;
+}
+
+.account button a:hover{
+  color: red;
+}
+
+/* Extra nav */
+
+#extra-nav{
+  position:absolute;
+  top:60px;
+  left:0;
+  right:0;
+}
+
+.container-extra{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
+  background-color: #000;
+  z-index: 100;
+}
+
+.container-extra button{
+  padding: 5px 10px;
+  font-size: 15px;
+  background-color: #fff;
+  border-radius: 200px;
+  border: none;
+}
+
+.container-extra button:hover{
+  background-color: red;
+}
+
+.container-extra button a{
+  color:red;
+  text-decoration: none;
+}
+
+.container-extra button a:hover{
+  color:#000;
+  text-decoration: none;
+}
+
+
+.container-extra .shopping-cart .icon-cart{
+  padding: 0 10px;
+  color:#fff;
+  font-size: 25px;
+}
+
+/* CONTENT */
+#content{
+  flex:1;
+}
+
+/* Slide show */
+
+.slideshow{
+  width: 100%;
+  height: 650px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.slideshow .slide{
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.slideshow .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-content{
+  margin: 50px 200px 0;
+}
+
+.section-name{
+  margin-bottom: 50px;
+  font-size: 40px;
+  color: #858181;
+  text-align: center;
+}
+
+/* Menu */
+.menu{}
+
+.container-menu{
+  right:0;
+  left:0;
+}
+
+.type-food{
+  margin: 0 50px 20px;
+  width: 260px;
+  height: 100%;
+  float: left;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.type-food button{
+  border: none;
+  background-color: #fff;
+}
+
+.type-food img{
+  width: 260px;
+  height: 200px;
+  
+}
+
+.type-food .type-name{
+  padding: 10px;
+  font-size: 20px;
+}
+
+/* Best-seller */
+
+/* Intro */
+.introduction{
+  margin: 0 20px 50px;
+}
+
+.container-intro{
+  position: relative;
+  padding: 30px;
+  
+}
+
+.container-intro::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(/Webcoding-learning/assets/img/food/home-intro.jpg);
+  z-index: -1;
+  opacity: 0.8;
+  border-radius: 50px;
+}
+
+.intro-name{
+  padding: 10px 0 30px;
+  font-size: 36px;
+  font-family: 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;  color: #e31837;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.container-intro p{
+  padding: 0 300px 10px;
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* FOOTER */
+#footer{
+  background-color: #000;
+}
+
+.container-footer{
+
+}
+
+.logo-footer{
+  width: 20%;
+  float: left;
+}
+
+.logo-footer img{
+}
+
+.address{
+  width: 40%;
+}/* === FORM ĐĂNG NHẬP / ĐĂNG KÝ === */
 
 .form-container {
   max-width: 380px;
@@ -48,4 +327,50 @@ body {
 
 .form-container button:hover {
   background-color: #e66900;
+}
+
+/* ==== FORM ĐĂNG NHẬP / ĐĂNG KÝ – BỔ SUNG ==== */
+
+/* 1) Căn giữa nội dung form & bảo đảm khoảng cách đồng nhất */
+.form-container form{
+  display: flex;          /* xếp các input theo cột, tự co giãn */
+  flex-direction: column;
+  gap: 14px;              /* khoảng cách đều giữa các control */
+}
+
+/* 2) Bắt placeholder luôn nằm gọn, chữ bật rõ */
+.form-container input::placeholder{
+  color:#a5a5a5;
+  opacity: 1;             /* tránh bị Safari hạ opacity */
+}
+
+/* 3) Hiển thị link tới trang đăng ký khi đang ở form đăng nhập (và ngược lại) */
+.form-container .form-link{
+  text-align:center;
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.form-container .form-link a{
+  color:#ff6b00;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.form-container .form-link a:hover{
+  text-decoration:underline;
+}
+
+/* 4) Hiệu ứng nhấn nút mượt hơn */
+.form-container button:active{
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15) inset;
+}
+
+/* 5) Bảo đảm form hiển thị đẹp khi được nhúng trong <iframe> hẹp */
+@media (max-width:460px){
+  .form-container{
+    margin:20px 16px;   /* co viền hai bên */
+    padding:1.5rem;
+  }
 }
