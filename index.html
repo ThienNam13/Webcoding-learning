@@ -158,16 +158,35 @@
 
 <!-- Popup đăng nhập/đăng ký -->
 <div id="popupFrame" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#0008; z-index:9999; justify-content:center; align-items:center;">
+     <div style="position:relative; display:flex; justify-content:center; align-items:center; width:100%; height:100%;">
+    
+<!-- Khung iframe + nút đóng -->
+    <div style="position:relative; width:420px; height:600px;">
+      <!-- Nút đóng -->
+      <button onclick="closePopup()" 
+              style="position:absolute; top:-20px; right:-20px; font-size:36px; background:#fff; color:#f00; border-radius:50%; border:2px solid #f00; width:50px; height:50px; cursor:pointer; z-index:10000;">
+        &times;
+      </button>
+
+    <!-- Nội dung iframe -->
   <div style="width:100%; height:100%; display:flex; justify-content:center; align-items:center;">
-    <iframe id="authFrame" src="" style="width:400px; height:500px; border:none; border-radius:20px;"></iframe>
+    <iframe id="authFrame" src="" style="width:400px; height:600px; border:none; border-radius:20px;"></iframe>
   </div>
 </div>
+
+
 <script>
   // Mở popup khi bấm nút đăng nhập
-  document.getElementById("btnLogin").addEventListener("click", function () {
+    document.getElementById("btnLogin").addEventListener("click", function () {
     document.getElementById("popupFrame").style.display = "flex";
     document.getElementById("authFrame").src = "login.html";
   });
+
+  //đóng popup 
+  function closePopup(){
+    document.getElementById("popupFrame").style.display = "none";
+    document.getElementById("authFrame").src = "";
+  }
 
   // Nhận tín hiệu từ iframe
   window.addEventListener("message", function (event) {
