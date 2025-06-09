@@ -1,23 +1,43 @@
+/* Reset & Base Styling */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-html {
-  font-family: sans-serif;
+
+html, body {
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body{
    background-color: #F5F5F5;
+  background-color: #fffaf5;
+  color: #333;
+  line-height: 1.5;
 }
-
 .clear {
   clear: both;
 }
 
+/* ========== BIẾN MÀU CHỦ ĐẠO ========== */
+:root {
+  --main-orange: #ff8800;
+  --main-orange-dark: #e67300;
+  --bg-light: #fffaf5;
+  --text-dark: #333;
+  --border-light: #f0d5b9;
+}
+
+/* ========== TIÊU ĐỀ ========== */
+h1, h2, h3 {
+  color: var(--main-orange);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 #app {}
 
-/* HEADER */
+* HEADER *
 #header {
 
 }
@@ -265,112 +285,73 @@ body{
 }
 
 /* FOOTER */
-#footer{
+#footer {
   background-color: #000;
-}
-
-.container-footer{
-
-}
-
-.logo-footer{
-  width: 20%;
-  float: left;
-}
-
-.logo-footer img{
-}
-
-.address{
-  width: 40%;
-}/* === FORM ĐĂNG NHẬP / ĐĂNG KÝ === */
-
-.form-container {
-  max-width: 380px;
-  margin: 40px auto;
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 0 12px rgba(255, 140, 0, 0.2);
-}
-
-.form-container h2 {
-  text-align: center;
-  color: #ff6b00;
-  margin-bottom: 1.5rem;
-}
-
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container input[type="password"] {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  font-size: 15px;
-}
-
-.form-container button {
-  width: 100%;
-  padding: 12px;
-  background-color: #ff7a00;
   color: white;
+  padding: 30px 50px;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.logo-footer {
+  width: 20%;
+}
+
+.logo-footer img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.address {
+  width: 40%;
+  padding: 0 20px;
+}
+
+.address-name {
+  font-size: 22px;
   font-weight: bold;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
+  color: #e31837;
+  margin-bottom: 10px;
+}
+
+.address p {
+  line-height: 1.6;
   font-size: 16px;
-  transition: background 0.3s ease;
 }
 
-.form-container button:hover {
-  background-color: #e66900;
+.link-web {
+  width: 40%;
+  padding: 0 20px;
 }
 
-/* ==== FORM ĐĂNG NHẬP / ĐĂNG KÝ – BỔ SUNG ==== */
-
-/* 1) Căn giữa nội dung form & bảo đảm khoảng cách đồng nhất */
-.form-container form{
-  display: flex;          /* xếp các input theo cột, tự co giãn */
-  flex-direction: column;
-  gap: 14px;              /* khoảng cách đều giữa các control */
+.link-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e31837;
+  margin-bottom: 10px;
 }
 
-/* 2) Bắt placeholder luôn nằm gọn, chữ bật rõ */
-.form-container input::placeholder{
-  color:#a5a5a5;
-  opacity: 1;             /* tránh bị Safari hạ opacity */
+.web-link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-/* 3) Hiển thị link tới trang đăng ký khi đang ở form đăng nhập (và ngược lại) */
-.form-container .form-link{
-  text-align:center;
-  margin-top: 1rem;
-  font-size: 14px;
+.icon-web {
+  font-size: 24px;
+  margin-right: 10px;
+  color: white;
 }
 
-.form-container .form-link a{
-  color:#ff6b00;
-  font-weight:600;
-  text-decoration:none;
+.web-name {
+  font-size: 16px;
 }
 
-.form-container .form-link a:hover{
-  text-decoration:underline;
-}
-
-/* 4) Hiệu ứng nhấn nút mượt hơn */
-.form-container button:active{
-  transform: translateY(1px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15) inset;
-}
-
-/* 5) Bảo đảm form hiển thị đẹp khi được nhúng trong <iframe> hẹp */
-@media (max-width:460px){
-  .form-container{
-    margin:20px 16px;   /* co viền hai bên */
-    padding:1.5rem;
-  }
+.highlight {
+  color: #e31837;
 }

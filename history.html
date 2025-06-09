@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đặt hàng thành công</title>
+  <link rel="stylesheet" href="assets/css/history.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/themify-icons-font/themify-icons/themify-icons.css">
+</head>
+<body>
+    <div id="app">
+        <!-- HEADER -->
+        <div id="header">
+                <div id="nav">
+                    <ul class="container-nav">
+                        <div class="logo-mini"><a href=""><img src="./assets/img/logo.png" alt=""></a></div>
+                        <li><a href="">Trang chủ</a></li>
+                        <li><a href="">Thực đơn</a></li>
+                        <li><a href="">Khuyến mãi</a></li>
+                        <li><a href="">Lịch sử đơn hàng</a></li>
+                    </ul>
+                    <div class="account">
+                        <i class="icon-user ti-user"></i>
+                        <button><a href=""><b>Login</b></a></button>
+                    </div>
+                    <!-- <div class="menu">
+                        <i class="icon-menu ti-user"></i>
+                    </div> -->
+                </div>
+                <div class="clear"></div>
+                <div id="extra-nav">
+                    <div class="container-extra">
+                        <button><a href=""><b>Đặt hàng ngay</b></a></button>
+                        <div class="shopping-cart">
+                        <i class="icon-cart ti-shopping-cart"></i>
+                        </div>
+                    </div>
+                    
+                </div>
+        </div>
+
+        <!-- HISTORY CONTENT -->
+          <div class="history-container">
+            <h2>Lịch sử đơn hàng</h2>
+
+            <div class="order-history-list">
+            <!-- Mỗi đơn hàng là 1 khối tóm tắt -->
+            <div class="order-summary">
+              <p><strong>Mã đơn:</strong> #ORDER001</p>
+              <p><strong>Ngày đặt:</strong> 06/06/2025</p>
+              <p><strong>Tổng tiền:</strong> 125,000đ</p>
+              <button class="btn" onclick="window.location.href='order.html?order_id=ORDER001'">Xem chi tiết</button>
+            </div>
+
+            <div class="order-summary">
+              <p><strong>Mã đơn:</strong> #ORDER002</p>
+              <p><strong>Ngày đặt:</strong> 04/06/2025</p>
+              <p><strong>Tổng tiền:</strong> 89,000đ</p>
+              <button class="btn" onclick="window.location.href='order.html?order_id=ORDER002'">Xem chi tiết</button>
+            </div>
+          </div>
+
+          <div class="history-buttons">
+            <button class="btn" onclick="window.location.href='index.html'">Quay về trang chủ</button>
+          </div>
+        </div>
+
+    </div>
+</body>
+</html>

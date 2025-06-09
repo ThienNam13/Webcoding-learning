@@ -1,0 +1,93 @@
+/* === FORM ĐĂNG NHẬP / ĐĂNG KÝ === */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff8f0;
+  margin: 0;
+  padding: 0;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 16px rgba(255, 140, 0, 0.15);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #ff6b00;
+  margin-bottom: 1.5rem;
+  font-size: 24px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.form-container input::placeholder {
+  color: #a5a5a5;
+  opacity: 1;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7a00;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #e66900;
+}
+
+.form-container button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) inset;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-container .form-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.form-container .form-link a {
+  color: #ff6b00;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-container .form-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive form trên màn hình nhỏ */
+@media (max-width: 460px) {
+  .form-container {
+    margin: 20px 16px;
+    padding: 1.5rem;
+  }
+}
