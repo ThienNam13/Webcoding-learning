@@ -242,6 +242,17 @@ h1, h2, h3 {
   font-size: 20px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit; /* kế thừa màu chữ từ cha */
+}
+
+a:hover {
+    color: #c00; /* hoặc màu bạn muốn khi hover */
+    text-decoration: none;
+}
+
+
 /* Best-seller */
 
 /* Intro */
