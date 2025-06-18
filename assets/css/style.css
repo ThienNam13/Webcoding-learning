@@ -19,22 +19,6 @@ body{
   clear: both;
 }
 
-/* ========== BIẾN MÀU CHỦ ĐẠO ========== */
- /* :root {
-  --main-orange: #ff8800;
-  --main-orange-dark: #e67300;
-  --bg-light: #fffaf5;
-  --text-dark: #333;
-  --border-light: #f0d5b9;
-} */
-
-/* ========== TIÊU ĐỀ ========== */
-/* h1, h2, h3 {
-  color: var(--main-orange);
-  margin-bottom: 20px;
-  text-align: center;
-} */
-
 #app {}
 
  /* HEADER  */
@@ -93,34 +77,46 @@ body{
 }
 
 .container-nav > li:hover > a {
-  color: orange;
+  color: #e67300;
   display: block;
 }
 
-.account{
+.nav-right{
+  margin-right: 20px;
   position: fixed;
   right:0;
-  margin-right: 20px;
-  padding: 10px 10px;
   font-size: 30px;
-  z-index: 101;
+  z-index: 100;
+  display: flex;
 }
 
-.account button{
+.search{
+  margin:0 50px 10px 0;
+}
+
+.search .search-box{
+  padding: 5px;
+  width: 300px;
+  border-radius: 50px;
+  border: 2px #e67300 solid;
+}
+
+.account{
+  padding: 10px 10px;
+}
+
+#btnLogin {
   padding: 10px 0;
   background-color: #fff;
   border-radius: 200px;
   border: none;
-}
-
-.account button a{
-  font-size: 20px;
+  font-size: 16px;
   text-decoration: none;
   color:#000;
 }
 
-.account button a:hover{
-  color: orange;
+#btnLogin:hover{
+  color: #e67300;
 }
 
 /* Extra nav */
@@ -161,29 +157,36 @@ body{
   text-decoration: none;
 }
 
-.container-extra button a:hover{
-  color:orange;
-  text-decoration: none;
+.container-extra button a:hover,
+.container-extra .shopping-cart .icon-cart:hover{
+  color:#e67300;
+
 }
 
+.container-extra .shopping-cart a{
+text-decoration: none;
+}
 
 .container-extra .shopping-cart .icon-cart{
   padding: 0 10px;
   color:#fff;
   font-size: 25px;
+  
 }
 
 /* Menu-tab */
 .menu-tabs a{
   padding: 0 30px;
   line-height: 46px;
+  color:#fff;
   align-items: center;
   font-weight: bold;
+  text-decoration: none;
   display: inline-block;
 }
 
 .menu-tabs a:hover{
-  color: orange;
+  color: #e67300;
   background-color: #000;
 }
 
@@ -259,13 +262,13 @@ body{
   font-size: 20px;
 }
 
-a {
+.type-food a {
     text-decoration: none;
     color: inherit; /* kế thừa màu chữ từ cha */
 }
 
-a:hover {
-    color: #c00; /* hoặc màu bạn muốn khi hover */
+.type-food a:hover {
+    color: #e67300;
     text-decoration: none;
 }
 
@@ -287,7 +290,7 @@ a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url(/Webcoding-learning/assets/img/food/home-intro.jpg);
+  background-image: url(/assets/img/food/home-intro.jpg);
   z-index: -1;
   opacity: 0.8;
   border-radius: 50px;
