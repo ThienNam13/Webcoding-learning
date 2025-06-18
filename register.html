@@ -4,21 +4,112 @@
   <meta charset="UTF-8" />
   <title>Đăng ký tài khoản</title>
   <link rel="stylesheet" href="assets/css/form.css" />
+  <style>
+    /* Popup message style */
+    #popupMessage {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+      font-family: sans-serif;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    #popupMessage p {
+      margin: 0 0 15px;
+      color: #333;
+    }
+
+    #popupMessage button {
+      padding: 8px 16px;
+      border: none;
+      background: #ff6600;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div class="form-container">
-    <h2>Đăng ký</h2>
-    <form id="registerForm" method="POST" action="php/auth/register.php">
-      <input type="text" name="fullname" placeholder="Họ và tên" required />
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Mật khẩu" required />
-      <input type="password" name="confirm_password" placeholder="Xác nhận mật khẩu" required />
-      <button type="submit">Tạo tài khoản</button>
-      <div class="form-link">
-  Đã có tài khoản? <a href="login.html">Đăng nhập</a>
-</div>
-
-    </form>
+  <div id="mainWrapper">
+    <div class="form-container">
+      <h2>Đăng ký</h2>
+      <form id="registerForm" method="POST" action="php/auth/register.php">
+        <input type="text" id="fullname" name="fullname" placeholder="Họ và tên" required />
+        <input type="email" id="email" name="email" placeholder="Email" required />
+        <input type="password" id="password" name="password" placeholder="Mật khẩu" required />
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Xác nhận mật khẩu" required />
+          <p style="color: #888; font-size: 13px; margin-bottom: 12px;">
+    Lưu ý: Chúng tôi...  
+  </p>
+        <button type="submit">Tạo tài khoản</button>
+        <div class="form-link">
+          Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+        </div>
+      </form>
+    </div>
   </div>
+
+  <!-- Popup message -->
+  <div id="popupMessage">
+    <p id="popupText"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+
+  <script>
+    // Hiện popup
+    function showPopup(message) {
+      document.getElementById("popupText").innerText = message;
+      document.getElementById("popupMessage").style.display = "block";
+    }
+
+    // Ẩn popup
+    function closePopup() {
+      document.getElementById("popupMessage").style.display = "none";
+    }
+
+    // Kiểm tra dữ liệu client-side
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      const fullname = document.getElementById("fullname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm_password").value;
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&^_-])[A-Za-z\d@$!%*#?&^_-]{6,}$/;
+
+      if (fullname.length < 5) {
+        e.preventDefault();
+        showPopup("Vui lòng nhập đầy đủ họ và tên.");
+        return;
+      }
+
+      if (!emailRegex.test(email)) {
+        e.preventDefault();
+        showPopup("Email không hợp lệ.");
+        return;
+      }
+
+      if (!passwordRegex.test(password)) {
+        e.preventDefault();
+        showPopup("Mật khẩu phải từ 6 ký tự, chứa chữ, số và ký tự đặc biệt.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        showPopup("Mật khẩu xác nhận không khớp.");
+        return;
+      }
+    });
+  </script>
 </body>
 </html>
