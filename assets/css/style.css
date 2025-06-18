@@ -20,24 +20,24 @@ body{
 }
 
 /* ========== BIẾN MÀU CHỦ ĐẠO ========== */
-:root {
+ /* :root {
   --main-orange: #ff8800;
   --main-orange-dark: #e67300;
   --bg-light: #fffaf5;
   --text-dark: #333;
   --border-light: #f0d5b9;
-}
+} */
 
 /* ========== TIÊU ĐỀ ========== */
-h1, h2, h3 {
+/* h1, h2, h3 {
   color: var(--main-orange);
   margin-bottom: 20px;
   text-align: center;
-}
+} */
 
 #app {}
 
-* HEADER *
+ /* HEADER  */
 #header {
 
 }
@@ -93,7 +93,7 @@ h1, h2, h3 {
 }
 
 .container-nav > li:hover > a {
-  color: red;
+  color: orange;
   display: block;
 }
 
@@ -120,7 +120,7 @@ h1, h2, h3 {
 }
 
 .account button a:hover{
-  color: red;
+  color: orange;
 }
 
 /* Extra nav */
@@ -137,7 +137,7 @@ h1, h2, h3 {
   justify-content: center;
   align-items: center;
   height: 46px;
-  background-color: #000;
+  background-color: orange;
   z-index: 100;
 }
 
@@ -150,16 +150,16 @@ h1, h2, h3 {
 }
 
 .container-extra button:hover{
-  background-color: red;
+  background-color: #000;
 }
 
 .container-extra button a{
-  color:red;
+  color:orange;
   text-decoration: none;
 }
 
 .container-extra button a:hover{
-  color:#000;
+  color:orange;
   text-decoration: none;
 }
 
@@ -268,7 +268,7 @@ h1, h2, h3 {
 .intro-name{
   padding: 10px 0 30px;
   font-size: 36px;
-  font-family: 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;  color: #e31837;
+  font-family: 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;  color: orange;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -315,7 +315,7 @@ h1, h2, h3 {
 .address-name {
   font-size: 22px;
   font-weight: bold;
-  color: #e31837;
+  color: orange;
   margin-bottom: 10px;
 }
 
@@ -332,7 +332,7 @@ h1, h2, h3 {
 .link-name {
   font-size: 20px;
   font-weight: bold;
-  color: #e31837;
+  color: orange;
   margin-bottom: 10px;
 }
 
@@ -353,5 +353,5 @@ h1, h2, h3 {
 }
 
 .highlight {
-  color: #e31837;
+  color: orange;
 }
