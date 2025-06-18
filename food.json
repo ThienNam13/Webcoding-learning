@@ -80,5 +80,45 @@
       "ingredients": ["Gà rán", "Mì ý", "Hamburger", "Khoai tây", "Nước uống"],
       "isBestSeller": false
     }
+{
+      "id": "F009",
+      "name": "Matcha Latte Kem Sữa",
+      "category": "Món mới",
+      "price": 32000,
+      "description": "Matcha đậm vị, thêm lớp kem sữa béo mịn phía trên",
+      "image": "images/matcha_latte.jpg",
+      "ingredients": ["Bột matcha", "Sữa tươi", "Kem sữa", "Đá"],
+      "isBestSeller": false
+    },
+    {
+      "id": "F010",
+      "name": "Khoai lắc phô mai",
+      "category": "Khuyến mãi",
+      "price": 19000,
+      "description": "Khoai tây chiên giòn rắc phô mai thơm lừng",
+      "image": "images/khoai_lac.jpg",
+      "ingredients": ["Khoai tây", "Phô mai bột", "Dầu ăn"],
+      "isBestSeller": true
+    },
+    {
+      "id": "F011",
+      "name": "Gà popcorn",
+      "category": "Khuyến mãi",
+      "price": 27000,
+      "description": "Miếng gà nhỏ giòn rụm, ăn vặt siêu cuốn",
+      "image": "images/ga_popcorn.jpg",
+      "ingredients": ["Thịt gà", "Bột chiên", "Gia vị"],
+      "isBestSeller": true
+    },
+    {
+      "id": "F012",
+      "name": "Pepsi không calo",
+      "category": "Đồ uống",
+      "price": 12000,
+      "description": "Pepsi không đường, không calo, mát lạnh sảng khoái",
+      "image": "images/pepsi_zero.jpg",
+      "ingredients": ["Nước có ga", "Hương liệu", "Chất tạo ngọt"],
+      "isBestSeller": false
+    }
   ]
 }

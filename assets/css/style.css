@@ -1,7 +1,7 @@
 /* Reset & Base Styling */
 * {
-  margin: 0;
-  padding: 0;
+  margin: auto;
+  padding: auto;
   box-sizing: border-box;
 }
 
@@ -133,6 +133,9 @@ body{
 }
 
 .container-extra{
+  position: fixed;
+  left:0;
+  right:0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,6 +171,20 @@ body{
   padding: 0 10px;
   color:#fff;
   font-size: 25px;
+}
+
+/* Menu-tab */
+.menu-tabs a{
+  padding: 0 30px;
+  line-height: 46px;
+  align-items: center;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.menu-tabs a:hover{
+  color: orange;
+  background-color: #000;
 }
 
 /* CONTENT */
@@ -241,6 +258,17 @@ body{
   padding: 10px;
   font-size: 20px;
 }
+
+a {
+    text-decoration: none;
+    color: inherit; /* kế thừa màu chữ từ cha */
+}
+
+a:hover {
+    color: #c00; /* hoặc màu bạn muốn khi hover */
+    text-decoration: none;
+}
+
 
 /* Best-seller */
 

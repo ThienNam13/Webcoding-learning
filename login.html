@@ -1,17 +1,21 @@
-<div class="container mt-5">
-  <h2 class="text-center mb-4">Đăng nhập</h2>
-  <form method="POST" action="login_process.html" class="mx-auto" style="max-width: 400px;">
-    <div class="mb-3">
-      <label for="email" class="form-label">Email:</label>
-      <input type="email" class="form-control" id="email" name="email" required />
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="assets/css/form.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Đăng nhập</h2>
+    <form id="loginForm" method="POST" action="php/auth/login.php">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Mật khẩu" required />
+      <button type="submit">Đăng nhập</button>
+      <div class="form-link">
+  Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
     </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Mật khẩu:</label>
-      <input type="password" class="form-control" id="password" name="password" required />
-    </div>
-    <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
-    <p class="mt-3 text-center">
-      Chưa có tài khoản? <a href="register.html">Đăng ký</a>
-    </p>
-  </form>
+    </form>
 </div>
+</body>
+</html>
