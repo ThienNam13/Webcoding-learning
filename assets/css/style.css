@@ -91,7 +91,7 @@ body{
 }
 
 .search{
-  margin:0 50px 10px 0;
+  margin:0 20px 10px 0;
 }
 
 .search .search-box{
@@ -109,6 +109,12 @@ body{
   background-color: #e67300;
   border-radius: 50px;
   border: 2px #e67300 solid;
+}
+
+.search button:hover{
+  color: #e67300;
+  background-color: #000;
+  border: 2px #000 solid;
 }
 
 .account{
@@ -172,16 +178,20 @@ body{
   color:#e67300;
 
 }
+.shopping-cart a{
+  margin-right: 50px;
+  color:#000;
+  text-decoration: none;
+}
 
-.container-extra .shopping-cart a{
-text-decoration: none;
+.shopping-cart a:hover{
+  color: #e67300;
 }
 
 .container-extra .shopping-cart .icon-cart{
   padding: 0 10px;
   color:#fff;
   font-size: 25px;
-  
 }
 
 /* Menu-tab */
