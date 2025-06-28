@@ -30,6 +30,7 @@ $link->set_charset("utf8");
   <div id="app">
     <!-- Header -->
     <div id="header">
+<<<<<<< HEAD:menu.php
       <div id="nav">
         <ul class="container-nav">
           <div class="logo-mini"><a href=""><img src="./assets/img/logo.png" alt=""></a></div>
@@ -46,6 +47,46 @@ $link->set_charset("utf8");
             <i class="icon-user ti-user"></i>
             <button id="btnLogin"><b>Đăng nhập</b></button>
           </div>
+=======
+                <div id="nav">
+                    <ul class="container-nav">
+                        <div class="logo-mini"><a href=""><img src="./assets/img/logo.png" alt=""></a></div>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="menu.html">Thực đơn</a></li>
+                        <li><a href="history.html">Lịch sử đơn hàng</a></li>
+                    </ul>
+                    <div class="nav-right">
+                      <form class="search">
+                        <input type="text" id="searchInput" class="search-box" placeholder="Nhập món ăn cần tìm ...">
+                        <button onclick="searchFood()">Tìm kiếm</button>
+                      </form>
+                      <div class="shopping-cart">
+                        <a href="cart.html"><i class="icon-cart ti-shopping-cart"></i></a>
+                        </div>
+                      <div class="account">
+                          <i class="icon-user ti-user"></i>
+                          <button id="btnLogin"><b>Đăng nhập</b></button>
+                      </div>
+                    </div>
+                    <!-- <div class="menu">
+                        <i class="icon-menu ti-user"></i>
+                    </div> -->
+                </div>
+                <div class="clear"></div>
+                <!-- Tabs danh mục -->
+                <div id="extra-nav">
+                    <div class="container-extra">
+                        <div class="menu-tabs">
+                            <a href="#khuyen-mai" class="tab active">Khuyến mãi</a>
+                            <a href="#mon-moi" class="tab">Món mới</a>
+                            <a href="#combo" class="tab">Combo</a>
+                            <a href="#ga-ran" class="tab">Gà rán</a>
+                            <a href="#burger-com-my" class="tab">Burger - Cơm - Mỳ ý</a>
+                            <a href="#trang-mieng" class="tab">Tráng Miệng</a>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> b84df635dc8e106aa530c18585a12147e8e83351:menu.html
         </div>
       </div>
       <div class="clear"></div>
