@@ -1,5 +1,20 @@
-<!DOCTYPE html>
+<?php
+// Kết nối database
+$host = '127.0.0.1';
+$user = 'root';
+$pass = '';
+$dbname = 'orderingfooddb';
+$port = 3306;
 
+$link = new mysqli($host, $user, $pass, $dbname, $port);
+if ($link->connect_error) {
+    die("Kết nối thất bại: " . $link->connect_error);
+}
+
+// Thiết lập UTF-8
+$link->set_charset("utf8");
+?>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
@@ -15,46 +30,43 @@
   <div id="app">
     <!-- Header -->
     <div id="header">
-                <div id="nav">
-                    <ul class="container-nav">
-                        <div class="logo-mini"><a href=""><img src="./assets/img/logo.png" alt=""></a></div>
-                        <li><a href="index.html">Trang chủ</a></li>
-                        <li><a href="menu.html">Thực đơn</a></li>
-                        <li><a href="history.html">Lịch sử đơn hàng</a></li>
-                    </ul>
-                    <div class="nav-right">
-                      <form class="search">
-                        <input type="text" id="searchInput" class="search-box" placeholder="Nhập món ăn cần tìm ...">
-                        <button onclick="searchFood()">Tìm kiếm</button>
-                      </form>
-                      <div class="account">
-                          <i class="icon-user ti-user"></i>
-                          <button id="btnLogin"><b>Đăng nhập</b></button>
-                      </div>
-                    </div>
-                    <!-- <div class="menu">
-                        <i class="icon-menu ti-user"></i>
-                    </div> -->
-                </div>
-                <div class="clear"></div>
-                <!-- Tabs danh mục -->
-                <div id="extra-nav">
-                    <div class="container-extra">
-                        <div class="menu-tabs">
-                            <a href="#khuyen-mai" class="tab active">Khuyến mãi</a>
-                            <a href="#mon-moi" class="tab">Món mới</a>
-                            <a href="#combo" class="tab">Combo</a>
-                            <a href="#ga-ran" class="tab">Gà rán</a>
-                            <a href="#burger-com-my" class="tab">Burger - Cơm - Mỳ ý</a>
-                            <a href="#trang-mieng" class="tab">Tráng Miệng</a>
-                        </div>
-                    </div>
-                </div>
+      <div id="nav">
+        <ul class="container-nav">
+          <div class="logo-mini"><a href=""><img src="./assets/img/logo.png" alt=""></a></div>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="menu.php">Thực đơn</a></li>
+          <li><a href="history.html">Lịch sử đơn hàng</a></li>
+        </ul>
+        <div class="nav-right">
+          <form class="search">
+            <input type="text" id="searchInput" class="search-box" placeholder="Nhập món ăn cần tìm ...">
+            <button onclick="searchFood()">Tìm kiếm</button>
+          </form>
+          <div class="account">
+            <i class="icon-user ti-user"></i>
+            <button id="btnLogin"><b>Đăng nhập</b></button>
+          </div>
         </div>
+      </div>
+      <div class="clear"></div>
+      <!-- Tabs danh mục -->
+      <div id="extra-nav">
+        <div class="container-extra">
+          <div class="menu-tabs">
+            <a href="#khuyen-mai" class="tab active">Khuyến mãi</a>
+            <a href="#mon-moi" class="tab">Món mới</a>
+            <a href="#combo" class="tab">Combo</a>
+            <a href="#ga-ran" class="tab">Gà rán</a>
+            <a href="#burger-com-my" class="tab">Burger - Cơm - Mỳ ý</a>
+            <a href="#trang-mieng" class="tab">Tráng Miệng</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Danh mục: Khuyến mãi -->
+    <!-- Giao diện hiển thị món ăn như HTML gốc -->
     <div class="food-title">
-      <h2 id="khuyen-mai" >Khuyến mãi</h2>
+      <h2 id="khuyen-mai">Khuyến mãi</h2>
       <div class="food-container">
         <div class="food-card">
           <img src="./assets/img/food/khoai_lac.png" alt="Khoai lắc phô mai">
@@ -80,7 +92,6 @@
       </div>
     </div>
 
-    <!-- Danh mục: Món mới -->
     <div class="food-title">
       <h2 id="mon-moi">Món mới</h2>
       <div class="food-container">
@@ -94,7 +105,6 @@
       </div>
     </div>
 
-    <!-- Danh mục: Combo -->
     <div class="food-title">
       <h2 id="combo">Combo</h2>
       <div class="food-container">
@@ -129,7 +139,6 @@
       </div>
     </div>
 
-    <!-- Danh mục: Gà rán -->
     <div class="food-title">
       <h2 id="ga-ran">Gà rán</h2>
       <div class="food-container">
@@ -143,7 +152,6 @@
       </div>
     </div>
 
-    <!-- Danh mục: Burger - Cơm - Mỳ ý -->
     <div class="food-title">
       <h2 id="burger-com-my-y">Burger - Cơm - Mỳ ý</h2>
       <div class="food-container">
@@ -164,7 +172,6 @@
       </div>
     </div>
 
-    <!-- Danh mục: Tráng miệng -->
     <div class="food-title">
       <h2 id="trang-mieng">Tráng miệng</h2>
       <div class="food-container">
@@ -177,8 +184,7 @@
         </div>
       </div>
     </div>
-  </div> <!-- Đóng #app -->
 
+  </div> <!-- #app -->
 </body>
-
 </html>
