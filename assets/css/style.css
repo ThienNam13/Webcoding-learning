@@ -97,6 +97,16 @@ body{
 .search .search-box{
   padding: 5px;
   width: 300px;
+  font-size: 15px;
+  border-radius: 50px;
+  border: 2px #e67300 solid;
+}
+
+.search button{
+  padding: 5px 10px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #e67300;
   border-radius: 50px;
   border: 2px #e67300 solid;
 }
