@@ -39,3 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderOrderItems();
 });
+
+    // Trước khi submit form, đính dữ liệu giỏ hàng vào input ẩn
+    document.getElementById("checkout-form").addEventListener("submit", function (e) {
+      const cart = localStorage.getItem("cart");
+      console.log("cart gửi đi:", cart);
+      document.getElementById("cart-data").value = cart || "[]";
+    });

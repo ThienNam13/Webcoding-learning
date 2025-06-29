@@ -111,11 +111,11 @@ body{
   border: 2px #e67300 solid;
 }
 
-.search button:hover{
+/* .search button:hover{
   color: #e67300;
   background-color: #000;
   border: 2px #000 solid;
-}
+} */
 
 .account{
   padding: 10px 10px;
@@ -178,14 +178,14 @@ body{
   color:#e67300;
 
 }
-.shopping-cart a{
+/* .shopping-cart a{
   margin-right: 50px;
   color:#000;
   text-decoration: none;
-}
+} */
 
-.shopping-cart a:hover{
-  color: #e67300;
+.container-extra .shopping-cart a{
+text-decoration: none;
 }
 
 .container-extra .shopping-cart .icon-cart{

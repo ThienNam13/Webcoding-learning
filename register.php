@@ -14,12 +14,12 @@
         <input type="email" id="email" name="email" placeholder="Email" required />
         <input type="password" id="password" name="password" placeholder="Mật khẩu" required />
         <input type="password" id="confirm_password" name="confirm_password" placeholder="Xác nhận mật khẩu" required />
-          <p style="color: #888; font-size: 13px; margin-bottom: 12px;">
-    Lưu ý: Chúng tôi...  
-  </p>
+        <p style="color: #888; font-size: 13px; margin-bottom: 12px;">
+          Lưu ý: Chúng tôi cam kết bảo mật thông tin của bạn.
+        </p>
         <button type="submit">Tạo tài khoản</button>
         <div class="form-link">
-          Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+          Đã có tài khoản? <a href="login.php">Đăng nhập</a>
         </div>
       </form>
     </div>
@@ -32,18 +32,15 @@
   </div>
 
   <script>
-    // Hiện popup
     function showPopup(message) {
       document.getElementById("popupText").innerText = message;
       document.getElementById("popupMessage").style.display = "block";
     }
 
-    // Ẩn popup
     function closePopup() {
       document.getElementById("popupMessage").style.display = "none";
     }
 
-    // Kiểm tra dữ liệu client-side
     document.getElementById("registerForm").addEventListener("submit", function (e) {
       const fullname = document.getElementById("fullname").value.trim();
       const email = document.getElementById("email").value.trim();

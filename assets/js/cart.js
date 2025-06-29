@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     attachEditEvents();
     checkoutBtn.onclick = () => {
       if (cart.length > 0) {
-        window.location.href = "checkout.html";
+        window.location.href = "checkout.php";
       }
     };
     checkoutBtn.disabled = cart.length === 0;

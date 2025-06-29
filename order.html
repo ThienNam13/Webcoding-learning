@@ -11,7 +11,24 @@
 <body>
     <div id="app">
         <!-- HEADER -->
-        
+        <div id="header">
+                <div id="nav">
+                    <ul class="container-nav">
+                        <div class="logo-mini"><a href=""><img src="./assets/img/logo.png" alt=""></a></div>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="menu.html">Thực đơn</a></li>
+                        <li><a href="history.html">Lịch sử đơn hàng</a></li>
+                    </ul>
+                    <div class="account">
+                        <i class="icon-user ti-user"></i>
+                        <button id="btnLogin"><b>Đăng nhập</b></button>
+                    </div>
+                    <!-- <div class="menu">
+                        <i class="icon-menu ti-user"></i>
+                    </div> -->
+                </div>
+                <div class="clear"></div>
+        </div>
 
         <!-- ORDER CONTENT -->
         <div class="order-container">
@@ -53,39 +70,6 @@
 
     </div>
 
-    <script>
-      // Lấy order_id từ URL
-      const params = new URLSearchParams(window.location.search);
-      const orderId = params.get("order_id") || "N/A";
-      document.getElementById("order-id").textContent = orderId;
-
-      // Mock dữ liệu đơn hàng (tạm thời để test)
-      const orderData = [
-      
-        { name: "Hamburger Bò", quantity: 2, price: 45000 },
-        { name: "Khoai tây chiên", quantity: 1, price: 25000 },
-        { name: "Pepsi lon", quantity: 3, price: 12000 }
-      ];
-
-      const tbody = document.getElementById("order-table-body");
-      const totalEl = document.getElementById("total");
-      let total = 0;
-
-      orderData.forEach(item => {
-        const row = document.createElement("tr");
-        const itemTotal = item.quantity * item.price;
-        total += itemTotal;
-
-        row.innerHTML = `
-          <td>${item.name}</td>
-          <td>${item.quantity}</td>
-          <td>${item.price.toLocaleString()}đ</td>
-          <td>${itemTotal.toLocaleString()}đ</td>
-        `;
-        tbody.appendChild(row);
-      });
-
-      totalEl.innerText = total.toLocaleString() + "đ";
-    </script>       
+    <script src="assets/js/order.js"></script>
 </body>
 </html>

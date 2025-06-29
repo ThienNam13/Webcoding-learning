@@ -7,13 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const ten_mon = card.querySelector("h3").textContent;
       const mo_ta = card.querySelector("p").textContent;
       const gia = parseInt(card.querySelector(".price").dataset.value);
+      const id = parseInt(button.dataset.id);
       const hinh_anh = card.querySelector("img").getAttribute("src");
+      
+      console.log("Món thêm:", { id, ten_mon, mo_ta, gia, hinh_anh });
 
-      showPopup({ ten_mon, mo_ta, gia, hinh_anh });
+      showPopup({ id, ten_mon, mo_ta, gia, hinh_anh });
     });
   });
 
   function showPopup(mon) {
+    console.log("Gửi vào giỏ:", mon);
     const overlay = document.createElement("div");
     overlay.className = "popup-overlay";
     overlay.innerHTML = `
@@ -41,11 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const index = cart.findIndex(item => item.ten_mon === mon.ten_mon);
     if (index >= 0) {
-      cart[index].so_luong += mon.so_luong;
+      cart[index] = {
+        ...cart[index],
+        so_luong: cart[index].so_luong + mon.so_luong,
+        id: mon.id // ✅ đảm bảo id không bị mất
+      };
     } else {
       cart.push(mon);
     }
-
+    console.log("➡️ Đối tượng sẽ lưu:", cart);
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Đã thêm vào giỏ hàng!");
   }
