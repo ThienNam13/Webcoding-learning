@@ -1,4 +1,5 @@
-<?php $title = "Thực đơn | KFJoli"; $page = 'menu'; include("header.php"); ?>
+<?php $title = "Thực đơn | KFJoli"; $page = 'menu'; 
+include("header.php"); ?>
 <link rel="stylesheet" href="./assets/css/menu.css">
 
 <!-- Tabs danh mục -->
