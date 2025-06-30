@@ -44,7 +44,8 @@
     <div class="container-intro">
       <div class="intro-name">KFJoli, say hi</div>
       <p>Dành cho những tín đồ yêu thích các món gà ngon, chất lượng và tiện lợi, KFJoli là lựa chọn hàng đầu với khẩu hiệu “Bạn ăn gì có KFJoli lo”.</p>
-      <p>... (phần giới thiệu giữ nguyên như HTML gốc) ...</p>
+      <p>Với các món gà chế biến đa dạng như gà rán giòn tan, gà sốt cay Hàn Quốc, gà nướng mật ong, cánh gà chiên nước mắm, cùng nhiều món ăn kèm hấp dẫn như khoai tây chiên, salad, nước uống tươi mát... chúng tôi cam kết sẽ đem đến một trải nghiệm tuyệt vời từ đồ ăn đến dịch vụ dành cho khách hàng một cách trọn vẹn nhất.</p>
+      <p>Hiện tại, cửa hàng hỗ trợ giao hàng nhanh trong khoảng 15 phút đến các quận lân cận như Bình Thạnh, Gò Vấp, Thủ Đức, Quận 1, Quận 2.</p>
     </div>
   </div>
 </div>
