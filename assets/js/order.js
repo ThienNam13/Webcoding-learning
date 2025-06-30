@@ -7,7 +7,7 @@
         throw new Error("Thiếu order_id trong URL");
       }
 
-      fetch(`/KFJoli-ordering/php/order/detail.php?order_id=${orderId}`)
+      fetch(`php/order/detail.php?order_id=${orderId}`)
         .then(response => response.json())
         .then(data => {
           const tbody = document.getElementById("order-table-body");
