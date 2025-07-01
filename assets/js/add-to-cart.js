@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cart[index] = {
         ...cart[index],
         so_luong: cart[index].so_luong + mon.so_luong,
-        id: mon.id // ✅ đảm bảo id không bị mất
+        id: mon.id 
       };
     } else {
       cart.push(mon);
