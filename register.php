@@ -7,6 +7,33 @@
 </head>
 <body>
   <div id="mainWrapper">
+  
+<?php
+$map = [
+  'invalid' => 'Thông tin không hợp lệ.',
+  'exists'  => 'Email đã tồn tại.',
+  'empty'   => 'Vui lòng nhập Email và Mật khẩu.',
+  'fail'    => 'Email hoặc mật khẩu chưa đúng.',
+  'welcome' => 'Đăng ký thành công!',
+  'loginok' => 'Đăng nhập thành công!'
+];
+if (!empty($_GET['msg']) && isset($map[$_GET['msg']])) {
+    echo '<p style="color:red;text-align:center;">'.$map[$_GET['msg']].'</p>';
+}
+
+if (!empty($_GET['msg']) && $_GET['msg'] === 'welcome') {
+    echo '<script>window.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("popupText").innerText = "Đăng ký thành công!";
+        document.getElementById("popupMessage").style.display = "block";
+        setTimeout(function() {
+            window.location.href = "login.php";
+        }, 3000);
+    });</script>';
+}
+
+
+?>
+
     <div class="form-container">
       <h2>Đăng ký</h2>
       <form id="registerForm" method="POST" action="php/auth/register.php">
@@ -74,6 +101,18 @@
         return;
       }
     });
+    window.addEventListener("message", function(event) {
+      if (event.data === "register-success") {
+        document.getElementById("popupText").innerText = "Đăng ký thành công!";
+        document.getElementById("popupMessage").style.display = "block";
+
+        const iframe = document.getElementById("authFrame");
+        if (iframe) {
+          iframe.src = "login.php";
+        }
+      }
+    });
+
   </script>
 </body>
 </html>

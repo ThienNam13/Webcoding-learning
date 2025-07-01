@@ -50,4 +50,16 @@
   </div>
 </div>
 
+<!-- Popup đăng nhập / đăng ký -->
+<div id="popupFrame" style="display:none">
+  <div class="popup-box">
+    <iframe id="authFrame" src=""></iframe>
+    <button class="popup-close" onclick="document.getElementById('popupFrame').style.display='none'">
+      &times;
+    </button>
+  </div>
+</div>
+<script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
 <?php include("footer.php"); ?>
+

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Đặt hàng thành công</title>
   <link rel="stylesheet" href="assets/css/order.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="./assets/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
