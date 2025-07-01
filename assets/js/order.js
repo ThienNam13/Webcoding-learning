@@ -2,12 +2,16 @@
       const orderId = params.get("order_id");
       document.getElementById("order-id").textContent = orderId || "N/A";
 
+      if (orderId) {
+        // Chỉ xóa nếu đúng trang đơn hàng
+        localStorage.removeItem("cart");
+      }
       if (!orderId || orderId === "N/A") {
         alert("Không tìm thấy mã đơn hàng");
         throw new Error("Thiếu order_id trong URL");
       }
 
-      fetch(`/KFJoli-ordering/php/order/detail.php?order_id=${orderId}`)
+      fetch(`php/order/detail.php?order_id=${orderId}`)
         .then(response => response.json())
         .then(data => {
           const tbody = document.getElementById("order-table-body");
