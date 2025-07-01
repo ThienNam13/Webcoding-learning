@@ -39,20 +39,20 @@ session_start();
             <?php
               $loggedIn = !empty($_SESSION['fullname']);
             ?>
-            <div class="account">
-              <i class="icon-user ti-user"></i>
 
-              <?php if ($loggedIn): ?>
-                <span class="welcome-text">
-                  Xin chào, <?= htmlspecialchars($_SESSION['fullname']) ?>
-                </span>
-                <button id="btnLogout"><b>Đăng xuất</b></button>
-              <?php else: ?>
-                <button id="btnLogin"><b>Đăng nhập</b></button>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
+    <div class="account">
+      <i class="icon-user ti-user"></i>
+
+      <?php if ($loggedIn): ?>
+        <span class="welcome-text">
+          Xin chào, <?= htmlspecialchars($_SESSION['fullname']) ?>
+        </span>
+        <button id="btnLogout" class="btn-account"><b>Đăng xuất</b></button>
+      <?php else: ?>
+        <button id="btnLogin" class="btn-account"><b>Đăng nhập</b></button>
+      <?php endif; ?>
+    </div>
+
   <div id="extra-nav">
     <div class="container-extra">
       <button><a href="#type-food"><b>Đặt hàng ngay</b></a></button>
