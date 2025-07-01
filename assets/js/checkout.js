@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const orderItemsContainer = document.querySelector(".order-items-container");
   const checkoutTotal = document.querySelector(".checkout-total span:last-child");
-
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   function formatCurrency(number) {

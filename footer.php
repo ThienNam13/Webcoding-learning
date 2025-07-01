@@ -23,7 +23,7 @@
 
 </div> <!-- end #app -->
 
-<script src="./assets/js/popup-auth.js"></script>
+
 <script>
   var slideIndex = 0;
   slideShow();
@@ -38,7 +38,7 @@
   }
 </script>
 
-<!-- Popup đăng nhập/đăng ký -->
+<!-- Popup đăng nhập/đăng ký 
 <div id="popupFrame" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#0008; z-index:9999; justify-content:center; align-items:center;">
   <div style="position:relative; display:flex; justify-content:center; align-items:center; width:100%; height:100%;">
     <div style="position:relative; width:420px; height:600px;">
@@ -72,6 +72,7 @@
       document.getElementById("authFrame").src = "login.php";
     }
   });
-</script>
+</script> -->
+
 </body>
 </html>

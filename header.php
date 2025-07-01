@@ -1,8 +1,10 @@
 <?php
-// header.php
+session_start(); 
 ?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +26,7 @@
     </ul>
     <div class="nav-right">
         <?php if (isset($page) && $page === 'menu'): ?>
+
             <form class="search">
                 <input type="text" id="searchInput" class="search-box" placeholder="Nhập món ăn cần tìm ...">
                 <button onclick="searchFood()">Tìm kiếm</button>
@@ -33,13 +36,23 @@
             </div>
         <?php endif; ?>
     
-        <div class="account">
-            <i class="icon-user ti-user"></i>
-            <button id="btnLogin"><b>Đăng nhập</b></button>
+            <?php
+              $loggedIn = !empty($_SESSION['fullname']);
+            ?>
+            <div class="account">
+              <i class="icon-user ti-user"></i>
+
+              <?php if ($loggedIn): ?>
+                <span class="welcome-text">
+                  Xin chào, <?= htmlspecialchars($_SESSION['fullname']) ?>
+                </span>
+                <button id="btnLogout"><b>Đăng xuất</b></button>
+              <?php else: ?>
+                <button id="btnLogin"><b>Đăng nhập</b></button>
+              <?php endif; ?>
+            </div>
+          </div>
         </div>
-    </div>
-  </div>
-  <div class="clear"></div>
   <div id="extra-nav">
     <div class="container-extra">
       <button><a href="#type-food"><b>Đặt hàng ngay</b></a></button>
@@ -49,3 +62,24 @@
     </div>
   </div>
 </div>
+
+<!-- Popup đăng nhập / đăng ký (ẩn mặc định) -->
+<div id="popupFrame" style="display:none">
+  <div class="popup-box">
+    <iframe id="authFrame" src="" style="width:420px;height:540px;border:none;border-radius:24px"></iframe>
+    <button class="popup-close" onclick="
+      document.getElementById('popupFrame').style.display='none';
+      document.getElementById('authFrame').src='';
+    ">&times;</button>
+  </div>
+</div>
+
+<!-- ============ SCRIPT ============ -->
+<script src="assets/js/auth.js"></script>
+<script>
+/* Đăng xuất */
+document.getElementById('btnLogout')?.addEventListener('click', () => {
+  fetch('php/auth/logout.php')          // xoá session bên server
+    .then(() => location.reload());     // reload để cập nhật header
+});
+</script>

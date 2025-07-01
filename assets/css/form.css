@@ -84,7 +84,7 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive form trên màn hình nhỏ */
+
 @media (max-width: 460px) {
   .form-container {
     margin: 20px 16px;
@@ -121,4 +121,7 @@ body {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+}
+#popupFrame:empty {
+  display: none !important;
 }
