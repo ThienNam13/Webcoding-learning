@@ -36,6 +36,7 @@
 
   <!-- Best-seller -->
   <div class="best-seller section-content">
+  <div class="clear"></div>
     <div class="section-name"><b>---------- Khách Hàng <a style="color: #000;">Mê FOOD</a> Ê Hề ---------</b></div>
   </div>
 
