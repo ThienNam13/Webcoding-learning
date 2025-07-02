@@ -19,6 +19,7 @@ $result = $stmt->get_result();
 
 if ($result->num_rows === 0) {
     http_response_code(404);
+
     echo json_encode(['error' => 'Không tìm thấy đơn hàng']);
     exit;
 }

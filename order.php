@@ -32,7 +32,6 @@
             </tr>
           </thead>
           <tbody id="order-table-body">
-            <!-- Các dòng dữ liệu được thêm bằng JS -->
           </tbody>
         </table>
         <div class="total">
