@@ -4,42 +4,36 @@
   <meta charset="UTF-8" />
   <title>Đăng ký tài khoản</title>
   <link rel="stylesheet" href="assets/css/form.css" />
-  <style>
-    /* Popup message style */
-    #popupMessage {
-      display: none;
-      position: fixed;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 20px 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 9999;
-      font-family: sans-serif;
-      text-align: center;
-      max-width: 300px;
-    }
-
-    #popupMessage p {
-      margin: 0 0 15px;
-      color: #333;
-    }
-
-    #popupMessage button {
-      padding: 8px 16px;
-      border: none;
-      background: #ff6600;
-      color: #fff;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
   <div id="mainWrapper">
+  
+<?php
+$map = [
+  'invalid' => 'Thông tin không hợp lệ.',
+  'exists'  => 'Email đã tồn tại.',
+  'empty'   => 'Vui lòng nhập Email và Mật khẩu.',
+  'fail'    => 'Email hoặc mật khẩu chưa đúng.',
+  'welcome' => 'Đăng ký thành công!',
+  'loginok' => 'Đăng nhập thành công!'
+];
+if (!empty($_GET['msg']) && isset($map[$_GET['msg']])) {
+    echo '<p style="color:red;text-align:center;">'.$map[$_GET['msg']].'</p>';
+}
+
+if (!empty($_GET['msg']) && $_GET['msg'] === 'welcome') {
+    echo '<script>window.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("popupText").innerText = "Đăng ký thành công!";
+        document.getElementById("popupMessage").style.display = "block";
+        setTimeout(function() {
+            window.location.href = "login.php";
+        }, 3000);
+    });</script>';
+}
+
+
+?>
+
     <div class="form-container">
       <h2>Đăng ký</h2>
       <form id="registerForm" method="POST" action="php/auth/register.php">
@@ -47,12 +41,12 @@
         <input type="email" id="email" name="email" placeholder="Email" required />
         <input type="password" id="password" name="password" placeholder="Mật khẩu" required />
         <input type="password" id="confirm_password" name="confirm_password" placeholder="Xác nhận mật khẩu" required />
-          <p style="color: #888; font-size: 13px; margin-bottom: 12px;">
-    Lưu ý: Chúng tôi...  
-  </p>
+        <p style="color: #888; font-size: 13px; margin-bottom: 12px;">
+          Lưu ý: Chúng tôi cam kết bảo mật thông tin của bạn.
+        </p>
         <button type="submit">Tạo tài khoản</button>
         <div class="form-link">
-          Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+          Đã có tài khoản? <a href="login.php">Đăng nhập</a>
         </div>
       </form>
     </div>
@@ -65,18 +59,15 @@
   </div>
 
   <script>
-    // Hiện popup
     function showPopup(message) {
       document.getElementById("popupText").innerText = message;
       document.getElementById("popupMessage").style.display = "block";
     }
 
-    // Ẩn popup
     function closePopup() {
       document.getElementById("popupMessage").style.display = "none";
     }
 
-    // Kiểm tra dữ liệu client-side
     document.getElementById("registerForm").addEventListener("submit", function (e) {
       const fullname = document.getElementById("fullname").value.trim();
       const email = document.getElementById("email").value.trim();
@@ -110,6 +101,18 @@
         return;
       }
     });
+    window.addEventListener("message", function(event) {
+      if (event.data === "register-success") {
+        document.getElementById("popupText").innerText = "Đăng ký thành công!";
+        document.getElementById("popupMessage").style.display = "block";
+
+        const iframe = document.getElementById("authFrame");
+        if (iframe) {
+          iframe.src = "login.php";
+        }
+      }
+    });
+
   </script>
 </body>
 </html>

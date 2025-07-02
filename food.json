@@ -79,8 +79,8 @@
       "image": "images/combo_tiec_vui.jpg",
       "ingredients": ["Gà rán", "Mì ý", "Hamburger", "Khoai tây", "Nước uống"],
       "isBestSeller": false
-    }
-{
+    },
+    {
       "id": "F009",
       "name": "Matcha Latte Kem Sữa",
       "category": "Món mới",

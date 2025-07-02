@@ -111,11 +111,11 @@ body{
   border: 2px #e67300 solid;
 }
 
-.search button:hover{
+/* .search button:hover{
   color: #e67300;
   background-color: #000;
   border: 2px #000 solid;
-}
+} */
 
 .account{
   padding: 10px 10px;
@@ -178,14 +178,14 @@ body{
   color:#e67300;
 
 }
-.shopping-cart a{
+/* .shopping-cart a{
   margin-right: 50px;
   color:#000;
   text-decoration: none;
-}
+} */
 
-.shopping-cart a:hover{
-  color: #e67300;
+.container-extra .shopping-cart a{
+text-decoration: none;
 }
 
 .container-extra .shopping-cart .icon-cart{
@@ -406,3 +406,78 @@ body{
 .highlight {
   color: orange;
 }
+
+/* === POPUP ĐĂNG NHẬP / ĐĂNG KÝ === */
+#popupFrame {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-box {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.popup-box iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ======== ACCOUNT STYLING ======== */
+.account {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.account .welcome-text {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.btn-account {
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  color: #000;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn-account:hover {
+  color: #e67300;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
