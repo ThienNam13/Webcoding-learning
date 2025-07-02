@@ -1,6 +1,8 @@
 <?php $title = "Thực đơn | KFJoli"; $page = 'menu'; 
 include("header.php"); ?>
 <link rel="stylesheet" href="./assets/css/menu.css">
+<script src="./assets/js/add-to-cart.js"></script>
+<script src="./assets/js/search.js"></script>
 
 <!-- Tabs danh mục -->
 <div id="extra-nav">
@@ -11,7 +13,17 @@ include("header.php"); ?>
       <a href="#combo" class="tab">Combo</a>
       <a href="#ga-ran" class="tab">Gà rán</a>
       <a href="#burger-com-my-y" class="tab">Burger - Cơm - Mỳ ý</a>
-      <a href="#trang-mieng" class="tab">Tráng Miệng</a>
+      <a href="#trang-mieng" class="tab">Tráng Miệng</a>  
+      <?php if (isset($page) && $page === 'menu'): ?>
+  
+              <form class="search tab">
+                  <input type="text" id="searchInput" class="search-box" placeholder="Nhập món ăn cần tìm ...">
+                  <button onclick="searchFood()">Tìm kiếm</button>
+              </form>
+              <div class="shopping-cart tab">
+                  <a href="cart.php"><i class="icon-cart ti-shopping-cart"></i></a>
+              </div>
+          <?php endif; ?>
     </div>
   </div>
 </div>
@@ -141,8 +153,5 @@ include("header.php"); ?>
       </div>
     </div>
 </div>
-
-<script src="./assets/js/add-to-cart.js"></script>
-<script src="./assets/js/search.js"></script>
 
 <?php include("footer.php"); ?>

@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/foods.css" />
     <link rel="stylesheet" href="../assets/themify-icons-font/themify-icons/themify-icons.css">
+    <script src="./assets/js/foods.js"></script>
 </head>
 <body>
     <?php
@@ -17,9 +18,9 @@
         <div class="button-add-food">
             <button><i class="icon-add">+</i> Thêm món ăn</button>
         </div>
-        <div class="form-add-food">
+        <div class="add-food">
             <h3>Thêm món ăn</h3>
-            <form action="" method="post">
+            <form action="" method="post" class="form-add">
                 <div class="attri">
                     <div class="name-attri">Ảnh: </div>
                     <input type="text" name="hinh_anh"></div>
