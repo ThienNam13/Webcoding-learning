@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#content {
+    margin: 50px 200px 0;
+    font-size: 16px;
+}
+
+/* Add food*/
+.button-add-food{
+    margin-bottom: 30px;
+}
+
+.button-add-food button{
+    padding: 5px 10px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #e67300;
+    border: none;
+    border-radius: 50px;
+}
+
+.button-add-food button:hover{
+    color: #e67300;
+    background-color: #000;
+}
+
+.form-add-food{
+    padding: 30px 20px 20px;
+    /* display: none; */
+    background-color: rgb(246, 207, 134);
+    border-radius: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+.form-add-food h3{
+    padding-bottom: 20px;
+}
+
+.attri{
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.attri .name-attri{
+    width: 35%;
+    text-align: left;
+}
+
+.attri input, .attri select{
+    width: 65%;
+    border-radius: 5px;
+}
+
+.button-submit{
+    border: none;
+    background-color: ;
+}
+
+/* Table foods */
+.foods-list{
+    width: 100%;
+}
+
+table{
+    
+}
+
+th{
+    padding: 10px 20px;
+    background-color: orange;
+}
+
+td{
+    padding: 5px;
+    text-align: center;
+    border: 2px rgb(246, 207, 134) solid;
+}
+
+td a{
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.icon-edit{
+    color: rgb(240, 221, 18);
+}
+
+.icon-edit:hover{
+    color: rgb(121, 112, 10);
+}
+
+.icon-trash{
+    color: red;
+}
+
+.icon-trash:hover{
+    color: rgb(122, 4, 4);
+}
