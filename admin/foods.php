@@ -74,7 +74,7 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
           <option>Món mới</option>
           <option>Combo</option>
           <option>Gà rán</option>
-          <option>Burger-Cơm-Mì ý</option>
+          <option>Burger - Cơm - Mì ý</option>
           <option>Tráng miệng</option>
         </select>
       </div>

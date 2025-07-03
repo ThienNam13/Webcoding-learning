@@ -1,3 +1,37 @@
+<?php
+session_start();
+require_once("php/db.php");
+
+$ma_don = $_GET['order_id'] ?? '';
+
+if (!$ma_don) {
+  header("Location: history.php");
+  exit;
+}
+
+// Truy vấn đơn hàng
+$stmt = $link->prepare("SELECT * FROM orders WHERE ma_don = ?");
+$stmt->bind_param("s", $ma_don);
+$stmt->execute();
+$order = $stmt->get_result()->fetch_assoc();
+$stmt->close();
+
+if (!$order) {
+  echo "Không tìm thấy đơn hàng.";
+  exit;
+}
+
+// Truy vấn các món ăn trong đơn hàng
+$stmt = $link->prepare("
+  SELECT f.ten_mon, i.so_luong, i.don_gia 
+  FROM order_items i
+  JOIN foods f ON i.food_id = f.id
+  WHERE i.order_id = ?
+");
+$stmt->bind_param("i", $order['id']);
+$stmt->execute();
+$items = $stmt->get_result();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -9,7 +43,6 @@
 </head>
 <body>
   <div id="app">
-
     <?php include("header.php"); ?>
 
     <!-- ORDER CONTENT -->
@@ -17,8 +50,9 @@
       <h2>Cảm ơn bạn đã đặt hàng</h2>
 
       <div class="order-info">
-        <p><strong>Mã đơn hàng:</strong> #<span id="order-id">ORDER1234</span></p>
+        <p><strong>Mã đơn hàng:</strong> #<?= htmlspecialchars($order['ma_don']) ?></p>
         <p><strong>Thời gian giao hàng dự kiến:</strong> 30 - 45 phút</p>
+        <p><strong>Ngày đặt:</strong> <?= date('d/m/Y H:i', strtotime($order['thoi_gian_dat'])) ?></p>
       </div>
 
       <div class="order-details">
@@ -31,28 +65,34 @@
               <th>Thành tiền</th>
             </tr>
           </thead>
-          <tbody id="order-table-body">
+          <tbody>
+            <?php 
+            $tong = 0;
+            while ($item = $items->fetch_assoc()): 
+              $thanh_tien = $item['so_luong'] * $item['don_gia'];
+              $tong += $thanh_tien;
+            ?>
+            <tr>
+              <td><?= htmlspecialchars($item['ten_mon']) ?></td>
+              <td><?= $item['so_luong'] ?></td>
+              <td><?= number_format($item['don_gia'], 0, ',', '.') ?>₫</td>
+              <td><?= number_format($thanh_tien, 0, ',', '.') ?>₫</td>
+            </tr>
+            <?php endwhile; ?>
           </tbody>
         </table>
         <div class="total">
-          Tổng cộng: <span id="total">0đ</span>
+          Tổng cộng: <span><?= number_format($tong, 0, ',', '.') ?>₫</span>
         </div>
       </div>
 
       <div class="buttons">
-        <button class="btn" onclick="window.location.href='index.php'">
-          Tiếp tục mua hàng
-        </button>
-        <button class="btn" onclick="window.location.href='history.php'">
-          Xem lịch sử đơn hàng
-        </button>
+        <button class="btn" onclick="window.location.href='index.php'">Tiếp tục mua hàng</button>
+        <button class="btn" onclick="window.location.href='history.php'">Xem lịch sử đơn hàng</button>
       </div>
     </div>
-
   </div>
 
   <?php include("footer.php"); ?>
-
-  <script src="assets/js/order.js"></script>
 </body>
 </html>

@@ -56,4 +56,3 @@ echo '<!DOCTYPE html><html><body><script>
  parent.postMessage("gotoLogin","*");
 </script></body></html>';
 exit;
-

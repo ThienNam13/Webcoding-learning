@@ -19,7 +19,7 @@ include("header.php"); ?>
   
               <form class="search tab">
                   <input type="text" id="searchInput" class="search-box" placeholder="Nhập món ăn cần tìm ...">
-                  <button onclick="searchFood()">Tìm kiếm</button>
+                  <button type="button" onclick="searchFood()">Tìm kiếm</button>
               </form>
               <div class="shopping-cart tab">
                   <a href="cart.php"><i class="icon-cart ti-shopping-cart"></i></a>
