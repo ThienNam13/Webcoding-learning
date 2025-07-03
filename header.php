@@ -25,32 +25,22 @@ session_start();
       <li><a href="history.php">Lịch sử đơn hàng</a></li>
     </ul>
     <div class="nav-right">
-        <?php if (isset($page) && $page === 'menu'): ?>
-
-            <form class="search">
-                <input type="text" id="searchInput" class="search-box" placeholder="Nhập món ăn cần tìm ...">
-                <button onclick="searchFood()">Tìm kiếm</button>
-            </form>
-            <div class="shopping-cart">
-                <a href="cart.php"><i class="icon-cart ti-shopping-cart"></i></a>
-            </div>
-        <?php endif; ?>
-    
-            <?php
+      <?php
               $loggedIn = !empty($_SESSION['fullname']);
-            ?>
+            ?> 
 
-    <div class="account">
-      <i class="icon-user ti-user"></i>
+      <div class="account">
+        <i class="icon-user ti-user"></i>
 
-      <?php if ($loggedIn): ?>
-        <span class="welcome-text">
-          Xin chào, <?= htmlspecialchars($_SESSION['fullname']) ?>
-        </span>
-        <button id="btnLogout" class="btn-account"><b>Đăng xuất</b></button>
-      <?php else: ?>
-        <button id="btnLogin" class="btn-account"><b>Đăng nhập</b></button>
-      <?php endif; ?>
+        <?php if ($loggedIn): ?>
+          <span class="welcome-text">
+            Xin chào, <?= htmlspecialchars($_SESSION['fullname']) ?>
+          </span>
+          <button id="btnLogout" class="btn-account"><b>Đăng xuất</b></button>
+        <?php else: ?>
+          <button id="btnLogin" class="btn-account"><b>Đăng nhập</b></button>
+        <?php endif; ?>
+      </div>
     </div>
   </div>
 

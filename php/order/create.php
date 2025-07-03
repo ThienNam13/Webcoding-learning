@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../db.php");
 
 if (
@@ -11,10 +12,13 @@ if (
   die("Thiếu thông tin đơn hàng!");
 }
 
+$user_id = $_SESSION['user_id'] ?? null;
 $fullname = $_POST['fullname'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 $region = $_POST['region'];
+$note = $_POST['note'] ?? '';
+$payment = $_POST['payment_method'] ?? 'cod';
 $cart_json = $_POST['cart_data'];
 $cart = json_decode($cart_json, true);
 
@@ -35,8 +39,8 @@ foreach ($cart as $item) {
 $total += $shipping_fee;
 
 // Tạo đơn hàng trước (chưa có mã đơn)
-$stmt = $link->prepare("INSERT INTO orders (ho_ten, sdt, dia_chi, khu_vuc, tong_tien) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssd", $fullname, $phone, $address, $region, $total);
+$stmt = $link->prepare("INSERT INTO orders (user_id, ho_ten, sdt, dia_chi, khu_vuc, tong_tien, ghi_chu, hinh_thuc_thanh_toan) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("issssdss",  $user_id, $fullname, $phone, $address, $region, $total, $note, $payment);
 $stmt->execute();
 $order_id = $stmt->insert_id;
 $stmt->close();

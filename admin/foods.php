@@ -44,7 +44,7 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Quản lý món ăn</title>
+  <title>Quản lý món ăn | KFJoli</title>
   <link rel="stylesheet" href="assets/css/foods.css" />
   <link rel="stylesheet" href="../assets/themify-icons-font/themify-icons/themify-icons.css">
 </head>
@@ -52,42 +52,30 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
 
 <div id="content">
   <div class="button-add-food">
-    <button onclick="document.querySelector('.form-add-food').scrollIntoView({behavior: 'smooth'})">
+    <button onclick="toggleForm()">
       <i class="icon-add">+</i> Thêm món ăn
     </button>
   </div>
 
-  <div class="form-add-food">
+  <div class="form-add-food" id="formAddFood" style="display: none;">
     <h3>Thêm món ăn</h3>
     <?php if (isset($error)): ?>
       <p style="color:red"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
     <form method="post">
-      <div class="attri">
-        <div class="name-attri">Ảnh:</div>
-        <input type="text" name="hinh_anh">
-      </div>
-      <div class="attri">
-        <div class="name-attri">Tên món:</div>
-        <input type="text" name="ten_mon">
-      </div>
-      <div class="attri">
-        <div class="name-attri">Mô tả:</div>
-        <input type="text" name="mo_ta">
-      </div>
-      <div class="attri">
-        <div class="name-attri">Giá tiền:</div>
-        <input type="number" name="gia" step="1000">
-      </div>
+      <div class="attri"><div class="name-attri">Ảnh:</div><input type="text" name="hinh_anh"></div>
+      <div class="attri"><div class="name-attri">Tên món:</div><input type="text" name="ten_mon"></div>
+      <div class="attri"><div class="name-attri">Mô tả:</div><input type="text" name="mo_ta"></div>
+      <div class="attri"><div class="name-attri">Giá tiền:</div><input type="number" name="gia" step="1000"></div>
       <div class="attri">
         <div class="name-attri">Loại:</div>
         <select name="loai">
-          <option value="Khuyến mãi">Khuyến mãi</option>
-          <option value="Món mới">Món mới</option>
-          <option value="Combo">Combo</option>
-          <option value="Gà rán">Gà rán</option>
-          <option value="Burger-Cơm-Mì ý">Burger-Cơm-Mì ý</option>
-          <option value="Tráng miệng">Tráng miệng</option>
+          <option>Khuyến mãi</option>
+          <option>Món mới</option>
+          <option>Combo</option>
+          <option>Gà rán</option>
+          <option>Burger-Cơm-Mì ý</option>
+          <option>Tráng miệng</option>
         </select>
       </div>
       <div class="attri">
@@ -122,15 +110,16 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
         <?php $i = 1; while($row = $foods->fetch_assoc()): ?>
           <tr>
             <td><?= $i++ ?></td>
-            <td><img src="../<?= htmlspecialchars($row['hinh_anh']) ?>" alt="ảnh" width="60"></td>
+            <td><img src="../<?= htmlspecialchars($row['hinh_anh']) ?>" width="60"></td>
             <td><?= htmlspecialchars($row['ten_mon']) ?></td>
             <td><?= htmlspecialchars($row['mo_ta']) ?></td>
             <td><?= number_format($row['gia']) ?>₫</td>
             <td><?= htmlspecialchars($row['loai']) ?></td>
             <td><?= $row['is_available'] ? "Còn" : "Hết" ?></td>
             <td>
-              <a href="#"><i class="icon-edit ti-pencil"></i></a>
-              <a href="#"><i class="icon-trash ti-trash"></i></a>
+              <a href="edit_food.php?id=<?= $row['id'] ?>">
+                <i class="icon-edit ti-pencil"></i>
+              </a>
             </td>
           </tr>
         <?php endwhile; ?>
@@ -138,6 +127,6 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
     </table>
   </div>
 </div>
-
+<script src="assets/js/foods.js"></script>
 </body>
 </html>

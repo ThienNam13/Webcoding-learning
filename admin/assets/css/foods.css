@@ -32,17 +32,18 @@ html, body {
     background-color: #000;
 }
 
-.form-add-food{
+.add-food{
     padding: 30px 20px 20px;
-    /* display: none; */
+    display: none;
     background-color: rgb(246, 207, 134);
     border-radius: 20px;
     display: inline-block;
     text-align: center;
 }
 
-.form-add-food h3{
+.add-food h3{
     padding-bottom: 20px;
+    display: none;
 }
 
 .attri{
@@ -62,7 +63,7 @@ html, body {
 
 .button-submit{
     border: none;
-    background-color: orange;
+    background-color: #e67300,
 }
 
 /* Table foods */
@@ -104,4 +105,19 @@ td a{
 
 .icon-trash:hover{
     color: rgb(122, 4, 4);
+}
+
+.open{
+    display: flex;
+}
+
+@keyframes FadeIn {
+  from{
+    opacity: 0;
+    transform:translateY(-200px);
+  }
+  to{
+    opacity: 1;
+    transform:translateY(0);
+  }
 }
