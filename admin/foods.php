@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require_once("../php/db.php");
@@ -130,3 +131,4 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
 <script src="assets/js/foods.js"></script>
 </body>
 </html>
+
