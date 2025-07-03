@@ -47,8 +47,6 @@ $stmt->close();
 $_SESSION['user_id']  = $user_id;
 $_SESSION['email'] = $email;
 $_SESSION['fullname'] = $fullname;
-s
-
 header('Location: ../../register.php?msg=welcome');
 exit;
 
@@ -57,4 +55,3 @@ echo '<!DOCTYPE html><html><body><script>
  parent.postMessage("gotoLogin","*");
 </script></body></html>';
 exit;
-

@@ -1,5 +1,10 @@
 <?php
 require_once("../db.php");
+session_start();
+$user_id = $_SESSION['user_id'] ?? null;
+if (!$user_id) {
+  die("Chưa đăng nhập!");
+}
 
 if (
   empty($_POST['fullname']) ||
@@ -35,8 +40,8 @@ foreach ($cart as $item) {
 $total += $shipping_fee;
 
 // Tạo đơn hàng trước (chưa có mã đơn)
-$stmt = $link->prepare("INSERT INTO orders (ho_ten, sdt, dia_chi, khu_vuc, tong_tien) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssd", $fullname, $phone, $address, $region, $total);
+$stmt = $link->prepare("INSERT INTO orders (user_id, ho_ten, sdt, dia_chi, khu_vuc, tong_tien) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("issssd", $user_id, $fullname, $phone, $address, $region, $total);
 $stmt->execute();
 $order_id = $stmt->insert_id;
 $stmt->close();
