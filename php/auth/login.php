@@ -22,7 +22,7 @@ if (!$user || !password_verify($password, $user['password'])) {
     exit;
 }
 
-// Thành công
+// Thành công gọi
 $_SESSION['user_id']  = $user['id'];
 $_SESSION['email'] = $email;
 $_SESSION['fullname'] = $user['fullname'];

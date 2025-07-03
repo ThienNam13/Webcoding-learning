@@ -122,6 +122,3 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-#popupFrame:empty {
-  display: none !important;
-}
