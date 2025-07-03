@@ -53,3 +53,22 @@ button {
 button:hover {
   background: #218838;
 }
+
+.filter-form {
+  margin: 20px 0;
+  padding: 10px;
+  background: #fff9ef;
+  border: 1px solid #ffcc80;
+  border-radius: 8px;
+}
+
+.filter-form label {
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.filter-form input,
+.filter-form select {
+  padding: 5px;
+  margin-left: 5px;
+}
