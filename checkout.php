@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title><?= $pageTitle ?></title>
   <link rel="stylesheet" href="assets/css/checkout.css" />
+  <script src="assets/js/checkout.js"></script>
 </head>
 <body>
 
@@ -92,8 +93,6 @@
     <button onclick="closePopup()">Đóng</button>
   </div>
 </div>
-
-<script src="assets/js/checkout.js"></script>
 
 </body>
 </html>

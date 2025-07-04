@@ -1,6 +1,5 @@
-<?php require_once 'auth_check.php'; ?>
-
 <?php
+require_once 'auth_check.php';
 require_once '../php/db.php';
 
 // Lấy giá trị filter từ form

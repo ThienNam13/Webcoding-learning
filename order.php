@@ -40,11 +40,11 @@ $items = $stmt->get_result();
   <title>Đặt hàng thành công</title>
   <link rel="stylesheet" href="assets/css/order.css" />
   <link rel="stylesheet" href="./assets/themify-icons-font/themify-icons/themify-icons.css">
+  <?php include("header.php"); ?>
+  <script src="assets/js/order.js"></script>
 </head>
 <body>
   <div id="app">
-    <?php include("header.php"); ?>
-
     <!-- ORDER CONTENT -->
     <div class="order-container">
       <h2>Cảm ơn bạn đã đặt hàng</h2>
@@ -94,10 +94,7 @@ $items = $stmt->get_result();
   </div>
 
   <?php include("footer.php"); ?>
-<<<<<<< HEAD
-=======
 
-  <script src="assets/js/order.js"></script>
   <!-- Popup cảnh báo lỗi -->
 <div class="popup-overlay" id="popup-alert" style="display: none;">
   <div class="popup-box">
@@ -106,58 +103,6 @@ $items = $stmt->get_result();
     <button class="popup-btn" onclick="closePopup()">Tôi hiểu rồi</button>
   </div>
 </div>
-
-<style>
-.popup-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.popup-box {
-  background: #fff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 400px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.popup-box h3 {
-  margin-bottom: 10px;
-  color: #c0392b;
-}
-
-.popup-box p {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.popup-btn {
-  background-color: #e74c3c;
-  color: #fff;
-  padding: 8px 18px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.popup-btn:hover {
-  background-color: #c0392b;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
 
 <script>
 function getParam(name) {
@@ -185,7 +130,5 @@ if (error) {
   document.getElementById("popup-message").innerText = message;
   document.getElementById("popup-alert").style.display = "flex";
 }
-</script>
->>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
 </body>
 </html>

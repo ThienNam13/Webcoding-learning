@@ -1,4 +1,3 @@
-
 <?php
   if (isset($_GET['error'])) echo "<script>alert('Sai tài khoản hoặc mật khẩu');</script>";
 ?>

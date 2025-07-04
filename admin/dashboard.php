@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
 <?php
 session_start();
 
@@ -26,10 +22,6 @@ $adminName = $_SESSION['fullname'] ?? 'Admin';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<<<<<<< HEAD
-
-=======
->>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
   <title>Dashboard quản trị | KFJoli</title>
   <link rel="stylesheet" href="assets/css/dashboard.css">
   <link rel="stylesheet" href="../assets/themify-icons-font/themify-icons/themify-icons.css">
@@ -43,10 +35,6 @@ $adminName = $_SESSION['fullname'] ?? 'Admin';
   <div class="dashboard-header">
       <h1>📊 Chào mừng, <?=htmlspecialchars($adminName)?>!</h1>
       <a href="?action=logout" class="logout-btn" onclick="return confirm('Bạn chắc chắn muốn Đăng xuất chứ?');">Đăng xuất</a>
-<<<<<<< HEAD
-
-=======
->>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
   </div>
 
   <div class="dashboard-content">
@@ -89,9 +77,4 @@ $adminName = $_SESSION['fullname'] ?? 'Admin';
     }
   </script>
 </body>
-<<<<<<< HEAD
 </html>
-
-=======
-</html>
->>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
