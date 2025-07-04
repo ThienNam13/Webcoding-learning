@@ -1,26 +1,44 @@
 <?php
 require_once '../php/db.php';
 
-// Lấy giá trị filter từ form
-$status_filter = $_GET['status'] ?? '';
-$date_from = $_GET['date_from'] ?? '';
-$date_to = $_GET['date_to'] ?? '';
+// --- Lọc theo trạng thái và ngày ---
+$filter_status = $_GET['status'] ?? '';
+$filter_date = $_GET['date'] ?? '';
 
-// Xây dựng câu truy vấn có điều kiện
+// --- Cập nhật trạng thái nếu POST ---
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'], $_POST['new_status'])) {
+    $order_id = intval($_POST['order_id']);
+    $new_status = trim($_POST['new_status']);
+
+    $stmt = $link->prepare("UPDATE orders SET trang_thai = ? WHERE id = ?");
+    $stmt->bind_param("si", $new_status, $order_id);
+    $stmt->execute();
+    $stmt->close();
+}
+
+// --- Truy vấn có lọc ---
 $sql = "SELECT * FROM orders WHERE 1";
+$params = [];
+$types = '';
 
-if (!empty($status_filter)) {
-  $sql .= " AND trang_thai = '" . $link->real_escape_string($status_filter) . "'";
+if ($filter_status !== '') {
+    $sql .= " AND trang_thai = ?";
+    $params[] = $filter_status;
+    $types .= 's';
 }
-if (!empty($date_from)) {
-  $sql .= " AND DATE(thoi_gian_dat) >= '" . $link->real_escape_string($date_from) . "'";
-}
-if (!empty($date_to)) {
-  $sql .= " AND DATE(thoi_gian_dat) <= '" . $link->real_escape_string($date_to) . "'";
+if ($filter_date !== '') {
+    $sql .= " AND DATE(thoi_gian_dat) = ?";
+    $params[] = $filter_date;
+    $types .= 's';
 }
 $sql .= " ORDER BY thoi_gian_dat DESC";
 
-$result = $link->query($sql);
+$stmt = $link->prepare($sql);
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+}
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -28,70 +46,65 @@ $result = $link->query($sql);
 <head>
   <meta charset="UTF-8">
   <title>Quản lý Đơn Hàng | Admin</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-  <h1>Quản lý Đơn Hàng</h1>
 
-  <form method="get" class="filter-form">
-    <label>Trạng thái:
-      <select name="status">
-        <option value="">-- Tất cả --</option>
-        <?php
-          $statuses = ['Đang xử lý', 'Đang giao', 'Hoàn thành', 'Đã hủy'];
-          foreach ($statuses as $status) {
-            $selected = ($status === $status_filter) ? 'selected' : '';
-            echo "<option value=\"$status\" $selected>$status</option>";
-          }
-        ?>
-      </select>
-    </label>
+<h1>Quản lý Đơn Hàng</h1>
 
-    <label>Từ ngày:
-      <input type="date" name="date_from" value="<?= htmlspecialchars($date_from) ?>">
-    </label>
+<!-- FORM LỌC -->
+<form method="GET" style="margin-bottom: 20px;">
+  <label for="status">Trạng thái:</label>
+  <select name="status" id="status">
+    <option value="">-- Tất cả --</option>
+    <?php
+    $statuses = ['Đang xử lý', 'Đang giao', 'Hoàn thành', 'Đã hủy'];
+    foreach ($statuses as $s) {
+      $selected = ($filter_status === $s) ? 'selected' : '';
+      echo "<option value=\"$s\" $selected>$s</option>";
+    }
+    ?>
+  </select>
 
-    <label>Đến ngày:
-      <input type="date" name="date_to" value="<?= htmlspecialchars($date_to) ?>">
-    </label>
+  <label for="date">Ngày đặt:</label>
+  <input type="date" name="date" id="date" value="<?= htmlspecialchars($filter_date) ?>">
 
-    <button type="submit">Lọc</button>
-  </form>
+  <button type="submit">Lọc</button>
+  
+</form>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Mã Đơn</th>
-        <th>Khách Hàng</th>
-        <th>Thời Gian Đặt</th>
-        <th>Tổng Tiền</th>
-        <th>Trạng Thái</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php while ($row = $result->fetch_assoc()): ?>
-        <tr>
-          <td><?= htmlspecialchars($row['ma_don']) ?></td>
-          <td><?= htmlspecialchars($row['ho_ten']) ?></td>
-          <td><?= $row['thoi_gian_dat'] ?></td>
-          <td><?= number_format($row['tong_tien'], 0, ',', '.') ?>₫</td>
-          <td>
-            <form method="post" action="update_status.php">
-              <input type="hidden" name="order_id" value="<?= $row['id'] ?>">
-              <select name="new_status">
-                <?php
-                  foreach ($statuses as $status) {
-                    $selected = ($row['trang_thai'] == $status) ? 'selected' : '';
-                    echo "<option value=\"$status\" $selected>$status</option>";
-                  }
-                ?>
-              </select>
-              <button type="submit">Cập nhật</button>
-            </form>
-          </td>
-        </tr>
-      <?php endwhile; ?>
-    </tbody>
-  </table>
+<table border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th>Mã Đơn</th>
+    <th>Khách Hàng</th>
+    <th>Thời Gian Đặt</th>
+    <th>Tổng Tiền</th>
+    <th>Trạng Thái</th>
+  </tr>
+
+  <?php while ($row = $result->fetch_assoc()): ?>
+    <tr>
+      <td><?= htmlspecialchars($row['ma_don']) ?></td>
+      <td><?= htmlspecialchars($row['ho_ten']) ?></td>
+      <td><?= date("d/m/Y H:i", strtotime($row['thoi_gian_dat'])) ?></td>
+      <td><?= number_format($row['tong_tien'], 0, ',', '.') ?>₫</td>
+      <td>
+        <form method="post">
+          <input type="hidden" name="order_id" value="<?= $row['id'] ?>">
+          <select name="new_status">
+            <?php
+              foreach ($statuses as $status) {
+                $selected = ($row['trang_thai'] == $status) ? 'selected' : '';
+                echo "<option value=\"$status\" $selected>$status</option>";
+              }
+            ?>
+          </select>
+          <button type="submit">Cập nhật</button>
+        </form>
+      </td>
+    </tr>
+  <?php endwhile; ?>
+</table>
+
 </body>
 </html>

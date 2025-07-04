@@ -54,21 +54,20 @@ button:hover {
   background: #218838;
 }
 
-.filter-form {
-  margin: 20px 0;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
   padding: 10px;
-  background: #fff9ef;
-  border: 1px solid #ffcc80;
-  border-radius: 8px;
+  text-align: left;
+  border: 1px solid #ccc;
 }
-
-.filter-form label {
-  margin-right: 15px;
-  font-weight: bold;
+form label {
+  margin-right: 8px;
 }
-
-.filter-form input,
-.filter-form select {
-  padding: 5px;
-  margin-left: 5px;
+form select, form input[type="date"] {
+  margin-right: 12px;
+  padding: 4px;
 }
