@@ -84,15 +84,16 @@
   </form>
 </div>
 
-<!-- Popup cảnh báo -->
-<div class="popup-overlay" id="popup-alert">
+<!-- ✅ Popup cảnh báo dùng chung -->
+<div class="popup-overlay" id="popup-alert" style="display: none;">
   <div class="popup-box">
-    <h3>❌ Không hỗ trợ giao hàng</h3>
-    <p>Chúng tôi chỉ giao hàng trong bán kính 10km quanh Phường Bình Thạnh.<br>Vui lòng chọn lại phường phù hợp.</p>
+    <h3>❌ Cảnh báo</h3>
+    <p id="popup-message">Nội dung cảnh báo sẽ được thay đổi bằng JS</p>
     <button onclick="closePopup()">Đóng</button>
   </div>
 </div>
 
 <script src="assets/js/checkout.js"></script>
+
 </body>
 </html>

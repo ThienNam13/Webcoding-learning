@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 body {
   font-family: Arial, sans-serif;
@@ -71,6 +72,8 @@ button:hover {
   padding: 5px;
   margin-left: 5px;
 
+=======
+>>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
 /* === FORM ĐĂNG NHẬP ADMIN === */
 body{
   font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
@@ -135,4 +138,7 @@ body{
   display: block;
   opacity: 1;
 }
+<<<<<<< HEAD
 }
+=======
+>>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
