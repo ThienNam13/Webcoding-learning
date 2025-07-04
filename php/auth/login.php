@@ -10,15 +10,23 @@ if ($email === '' || $password === '') {
     exit;
 }
 
-$sql  = "SELECT id, fullname, password FROM users WHERE email = ? LIMIT 1";
+$sql  = "SELECT id, fullname, password, blocked FROM users WHERE email = ? LIMIT 1";
 $stmt = $link->prepare($sql);
 $stmt->bind_param('s', $email);
 $stmt->execute();
 $user = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
-if (!$user || !password_verify($password, $user['password'])) {
-    header('Location: ../../login.php?msg=fail');
+if (!$user) {
+    header('Location: ../../login.php?msg=fail');  // tài khoản không tồn tại
+    exit;
+}
+if ($user['blocked']) {                            // bị chặn → thoát
+    header('Location: ../../login.php?msg=blocked');
+    exit;
+}
+if (!password_verify($password, $user['password'])) {
+    header('Location: ../../login.php?msg=fail');  // sai mật khẩu
     exit;
 }
 

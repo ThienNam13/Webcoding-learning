@@ -18,6 +18,7 @@ $map = [
   'exists'  => 'Email đã tồn tại.',
   'empty'   => 'Vui lòng nhập Email và Mật khẩu.',
   'fail'    => 'Email hoặc mật khẩu chưa đúng.',
+  'blocked' => 'Tài khoản này đã bị khóa!',
   'welcome' => 'Đăng ký thành công!',
   'loginok' => 'Đăng nhập thành công!'
 ];

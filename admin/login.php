@@ -29,6 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $error = 'Không tìm thấy tài khoản!';
   } elseif ($user['role'] !== 'admin') {
       $error = 'Tài khoản này không có quyền quản trị!';
+  } elseif ($user['blocked']) {                     // ⇦ NEW
+    $error = 'Tài khoản đã bị khóa!';  
   } elseif (!password_verify($password, $user['password'])) {
       $error = 'Sai mật khẩu!';
   } else {
