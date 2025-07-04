@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initAddToCart() {
   const addButtons = document.querySelectorAll(".btn-add");
 
   addButtons.forEach(button => {
@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       cart.push(mon);
     }
-    console.log("➡️ Đối tượng sẽ lưu:", cart);
+    console.log(" Đối tượng sẽ lưu:", cart);
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Đã thêm vào giỏ hàng!");
   }
-});
+};

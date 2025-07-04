@@ -42,6 +42,7 @@ session_start();
         <?php endif; ?>
       </div>
     </div>
+  </div>
 
   <div id="extra-nav">
     <div class="container-extra">
@@ -66,6 +67,7 @@ session_start();
 
 <!-- ============ SCRIPT ============ -->
 <script src="assets/js/auth.js"></script>
+<script src="./assets/js/search.js"></script>
 <script>
 /* Đăng xuất */
 document.getElementById('btnLogout')?.addEventListener('click', () => {

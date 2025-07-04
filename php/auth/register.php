@@ -47,6 +47,7 @@ $stmt->close();
 $_SESSION['user_id']  = $user_id;
 $_SESSION['email'] = $email;
 $_SESSION['fullname'] = $fullname;
+
 header('Location: ../../register.php?msg=welcome');
 exit;
 

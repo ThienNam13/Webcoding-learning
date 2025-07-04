@@ -1,3 +1,5 @@
+<?php require_once 'auth_check.php'; ?>
+
 <?php
 require_once '../php/db.php';
 

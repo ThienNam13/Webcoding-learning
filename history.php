@@ -10,7 +10,6 @@ $user_id = $_SESSION['user_id'] ?? null;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lịch sử đơn hàng</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/history.css" />
   <link rel="stylesheet" href="assets/css/warning.css" />
   <link rel="stylesheet" href="./assets/themify-icons-font/themify-icons/themify-icons.css">

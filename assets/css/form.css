@@ -1,12 +1,5 @@
 /* === FORM ĐĂNG NHẬP / ĐĂNG KÝ === */
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff8f0;
-  margin: 0;
-  padding: 0;
-}
-
 .form-container {
   max-width: 400px;
   margin: 50px auto;
@@ -122,6 +115,11 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+<<<<<<< HEAD
 #popupFrame:empty {
   display: none !important;
 }
+ 
+
+=======
+>>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
