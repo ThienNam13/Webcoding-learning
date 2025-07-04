@@ -14,6 +14,7 @@ if (
 $fullname = $_POST['fullname'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
+
 $region = $_POST['region'];
 $cart_json = $_POST['cart_data'];
 $cart = json_decode($cart_json, true);
