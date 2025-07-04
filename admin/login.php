@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $password =       $_POST['password'] ?? '';
 
   /* Truy vấn user theo email */
-  $sql  = "SELECT id, fullname, password, role
+  $sql  = "SELECT id, fullname, password, role, blocked 
            FROM users
            WHERE email = ? LIMIT 1";
   $stmt = $link->prepare($sql);
