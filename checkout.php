@@ -84,7 +84,7 @@
   </form>
 </div>
 
-<!-- Popup cảnh báo -->
+<!-- Popup cảnh báo không giao hàng -->
 <div class="popup-overlay" id="popup-alert">
   <div class="popup-box">
     <h3>❌ Không hỗ trợ giao hàng</h3>
@@ -93,6 +93,38 @@
   </div>
 </div>
 
+<!-- Popup xác nhận đặt hàng -->
+<div class="popup-overlay" id="popup-confirm">
+  <div class="popup-box">
+    <h3>Xác nhận thanh toán</h3>
+    <p>Bạn có chắc chắn muốn đặt đơn hàng này không?</p>
+    <button class="btn-confirm" onclick="submitRealOrder()">Xác nhận</button>
+    <button class="btn-cancel" onclick="closeConfirm()">Hủy</button>
+  </div>
+</div>
+
 <script src="assets/js/checkout.js"></script>
+<script>
+  const checkoutForm = document.getElementById("checkout-form");
+
+  checkoutForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("popup-confirm").style.display = "flex";
+  });
+
+  function submitRealOrder() {
+    document.getElementById("popup-confirm").style.display = "none";
+    checkoutForm.submit();
+  }
+
+  function closeConfirm() {
+    document.getElementById("popup-confirm").style.display = "none";
+  }
+
+  function closePopup() {
+    document.getElementById("popup-alert").style.display = "none";
+  }
+</script>
+
 </body>
 </html>
