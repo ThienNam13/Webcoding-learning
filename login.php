@@ -21,6 +21,7 @@ $map = [
   'welcome' => 'Đăng ký thành công!',
   'loginok' => 'Đăng nhập thành công!'
 ];
+//dùng
 if (!empty($_GET['msg']) && isset($map[$_GET['msg']])) {
     echo '<p style="color:red;text-align:center;">'.$map[$_GET['msg']].'</p>';
 }

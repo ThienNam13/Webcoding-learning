@@ -1,28 +1,52 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
 <?php
 session_start();
 
-// // Kiểm tra quyền admin
-// if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
-//   header("Location: login.php");
-//   exit;
-// }
+// Kiểm tra quyền admin
+//if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+//header("Location: login.php");
+//exit;
+//}
 
-$adminName = $_SESSION['fullname'] ?? 'Admin'; //tên và role
+if (isset($_GET['action']) && $_GET['action']==='logout') {
+  session_unset();
+  session_destroy();
+  header('Location: login.php');  
+  exit;
+}
+$showLoginOk = !empty($_GET['loginok']);
+$adminName = $_SESSION['fullname'] ?? 'Admin';
 ?>
 
-<!DOCTYPE html>
-<html lang="vi">
+
+<!DOCTYPE html><html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
   <title>Dashboard quản trị | KFJoli</title>
   <link rel="stylesheet" href="assets/css/dashboard.css">
   <link rel="stylesheet" href="../assets/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
 
+  <?php if($showLoginOk): ?>
+    <script>window.addEventListener('DOMContentLoaded',()=>showToast('Đăng nhập thành công!'));</script>
+  <?php endif; ?>
+
   <div class="dashboard-header">
-    <h1>📊 Chào mừng, <?= htmlspecialchars($adminName) ?>!</h1>
-    <a href="logout.php" class="logout-btn">Đăng xuất</a>
+      <h1>📊 Chào mừng, <?=htmlspecialchars($adminName)?>!</h1>
+      <a href="?action=logout" class="logout-btn" onclick="return confirm('Bạn chắc chắn muốn Đăng xuất chứ?');">Đăng xuất</a>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
   </div>
 
   <div class="dashboard-content">
@@ -51,5 +75,23 @@ $adminName = $_SESSION['fullname'] ?? 'Admin'; //tên và role
     </div>
   </div>
 
+<div id="toast" class="toast" style="display:none;"></div>
+  <script>
+    function showToast(msg){
+      const toast=document.getElementById('toast');
+      toast.textContent=msg;
+      toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'),3000);
+
+      <?php if(!empty($_GET['loginok'])): ?>
+      window.addEventListener('DOMContentLoaded', () => showToast('Đăng nhập thành công!'));
+      <?php endif; ?>
+    }
+  </script>
 </body>
+<<<<<<< HEAD
 </html>
+
+=======
+</html>
+>>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f

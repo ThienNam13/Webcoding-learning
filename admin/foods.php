@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 <?php
 session_start();
 require_once("../php/db.php");
@@ -130,3 +132,7 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
 <script src="assets/js/foods.js"></script>
 </body>
 </html>
+
+=======
+<?php require_once 'auth_check.php'; ?>
+>>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f

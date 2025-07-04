@@ -20,6 +20,7 @@ $user_id = $_SESSION['user_id'] ?? null;
 $fullname = $_POST['fullname'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
+
 $region = $_POST['region'];
 $note = $_POST['note'] ?? '';
 $payment = $_POST['payment_method'] ?? 'cod';
