@@ -1,47 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const orderItemsContainer = document.querySelector(".order-items-container");
-  const checkoutTotal = document.querySelector(".checkout-total span:last-child");
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  function formatCurrency(number) {
-    return number.toLocaleString("vi-VN") + "₫";
-  }
-
-  function renderOrderItems() {
-    let total = 0;
-
-    // Xóa các dòng món ăn cũ (giữ lại phí giao hàng)
-    const items = orderItemsContainer.querySelectorAll(".order-item");
-    if (items.length > 1) {
-      items.forEach((item, i) => {
-        if (i < items.length - 1) item.remove();
-      });
-    }
-
-    cart.forEach(item => {
-      const itemTotal = item.so_luong * item.gia;
-      total += itemTotal;
-
-      const div = document.createElement("div");
-      div.className = "order-item";
-      div.innerHTML = `<span>${item.ten_mon} x${item.so_luong}</span><span>${formatCurrency(itemTotal)}</span>`;
-      orderItemsContainer.insertBefore(div, orderItemsContainer.querySelector(".order-item:last-child"));
-    });
-
-    const shipping = 15000;
-    orderItemsContainer.querySelector(".order-item:last-child span:last-child").textContent = formatCurrency(shipping);
-    checkoutTotal.textContent = formatCurrency(total + shipping);
-  }
-
-  renderOrderItems();
-});
-
-// Gửi cart và kiểm tra phường
-function closePopup() {
-  document.getElementById("popup-alert").style.display = "none";
-}
-
+// Gửi cart và kiểm tra địa chỉ + phường
 document.getElementById("checkout-form").addEventListener("submit", function (e) {
+  const wardInput = document.getElementById("ward");
+  const addressInput = document.getElementById("address");
+  const ward = wardInput.value.trim();
+  const addressValue = addressInput.value.trim();
+
   const allowedWards = [
     "Phường Bình Thạnh", "Phường Tân Sơn Nhất", "Phường Cầu Kiệu",
     "Phường An Nhơn", "Phường Hạnh Thông", "Phường Sài Gòn",
@@ -49,12 +12,30 @@ document.getElementById("checkout-form").addEventListener("submit", function (e)
     "Phường An Hội Đông"
   ];
 
-  const ward = document.getElementById("ward").value.trim();
+  const validAddressRegex = /^\d[\d\/\-]{0,10}\s+[\p{L}\s\d'.\-]{3,}$/u;
+
   if (!allowedWards.includes(ward)) {
     e.preventDefault();
+    document.getElementById("popup-message").innerText =
+      "Phường không nằm trong khu vực giao hàng. Vui lòng chọn phường gần Bình Thạnh (trong 10km).";
     document.getElementById("popup-alert").style.display = "flex";
-  } else {
-    const cart = localStorage.getItem("cart") || "[]";
-    document.getElementById("cart-data").value = cart;
+    wardInput.focus();
+    return;
   }
+
+  if (addressValue.length < 10 || !validAddressRegex.test(addressValue)) {
+    e.preventDefault();
+    document.getElementById("popup-message").innerText =
+      "Địa chỉ không hợp lệ. Vui lòng nhập rõ số nhà và tên đường (VD: 576/2 Nguyễn Văn Cừ).";
+    document.getElementById("popup-alert").style.display = "flex";
+    addressInput.focus();
+    return;
+  }
+
+  const cart = localStorage.getItem("cart") || "[]";
+  document.getElementById("cart-data").value = cart;
 });
+
+function closePopup() {
+  document.getElementById("popup-alert").style.display = "none";
+}
