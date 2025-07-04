@@ -20,7 +20,6 @@ $user_id = $_SESSION['user_id'] ?? null;
 $fullname = $_POST['fullname'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
-
 $region = $_POST['region'];
 $note = $_POST['note'] ?? '';
 $payment = $_POST['payment_method'] ?? 'cod';
@@ -29,6 +28,18 @@ $cart = json_decode($cart_json, true);
 
 if (!is_array($cart) || count($cart) === 0) {
   die("Giỏ hàng không hợp lệ!");
+}
+
+if (!preg_match("/^[\p{L}\s'.-]{4,}$/u", $fullname)) {
+    die("Tên không hợp lệ!");
+}
+
+if (!preg_match("/^(0|\+84)[0-9]{8,10}$/", $phone)) {
+    die("Số điện thoại không hợp lệ!");
+}
+
+if (strlen($address) < 10 || !preg_match("/^\d[\d\/\-]{0,10}\s+[\p{L}\s\d'.\-]{3,}$/u", $address)) {
+    die("Địa chỉ không hợp lệ!");
 }
 
 // Tính tổng tiền

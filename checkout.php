@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title><?= $pageTitle ?></title>
   <link rel="stylesheet" href="assets/css/checkout.css" />
-  <script src="assets/js/checkout.js"></script>
 </head>
 <body>
 
@@ -94,5 +93,16 @@
   </div>
 </div>
 
+<!-- Popup xác nhận đặt hàng -->
+<div class="popup-overlay" id="popup-confirm">
+  <div class="popup-box">
+    <h3>Xác nhận thanh toán</h3>
+    <p>Bạn có chắc chắn muốn đặt đơn hàng này không?</p>
+    <button class="btn-confirm" onclick="submitRealOrder()">Xác nhận</button>
+    <button class="btn-cancel" onclick="closeConfirm()">Hủy</button>
+  </div>
+</div>
+
+<script src="assets/js/checkout.js"></script>
 </body>
 </html>

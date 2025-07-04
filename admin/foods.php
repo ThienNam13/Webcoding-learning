@@ -1,6 +1,6 @@
 <?php
 require_once("../php/db.php");
-require_once 'auth_check.php'; 
+// require_once 'auth_check.php'; 
 
 // // Kiểm tra quyền admin
 // if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {

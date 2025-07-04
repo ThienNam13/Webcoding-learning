@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+// require_once 'auth_check.php';
 // Kiểm tra quyền admin
 //if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
 //header("Location: login.php");
