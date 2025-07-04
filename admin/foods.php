@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <?php
 session_start();
@@ -133,6 +132,6 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
 </body>
 </html>
 
-=======
+
 <?php require_once 'auth_check.php'; ?>
->>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
+
