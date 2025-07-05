@@ -55,6 +55,27 @@ function initAddToCart() {
     }
     console.log(" Đối tượng sẽ lưu:", cart);
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Đã thêm vào giỏ hàng!");
+    showToast("✅ Đã thêm vào giỏ hàng!");
   }
+
+  function showToast(message) {
+    const toast = document.createElement("div");
+    toast.className = "toast-message";
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    // Kích hoạt animation
+    requestAnimationFrame(() => {
+      toast.classList.add("show");
+    });
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2500);
+
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  }
+
 };

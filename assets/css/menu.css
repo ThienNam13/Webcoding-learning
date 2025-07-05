@@ -51,6 +51,7 @@
 .food-card button:hover {
   background-color: #d35400;
 }
+
 .popup-overlay {
   position: fixed;
   top: 0; left: 0;
@@ -70,3 +71,24 @@
   width: 300px;
 }
 
+.toast-message {
+  position: fixed;
+  bottom: -60px;
+  left: 85%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease, bottom 0.4s ease;
+}
+
+/* Hiện toast trượt lên */
+.toast-message.show {
+  opacity: 1;
+  bottom: 30px;
+}
