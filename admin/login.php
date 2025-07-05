@@ -29,6 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $error = 'Không tìm thấy tài khoản!';
   } elseif ($user['role'] !== 'admin') {
       $error = 'Tài khoản này không có quyền quản trị!';
+  } elseif ($user['blocked']) {                     // ⇦ NEW
+    $error = 'Tài khoản đã bị khóa!';  
   } elseif (!password_verify($password, $user['password'])) {
       $error = 'Sai mật khẩu!';
   } else {
@@ -50,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Đăng nhập Admin</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
   <div class="form-container">

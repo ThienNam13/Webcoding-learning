@@ -1,0 +1,134 @@
+/* =========================================================
+   admin/assets/css/users.css – “Refined” look & feel
+   ========================================================= */
+
+/* ───── Base ───── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --clr-bg:        #fffaf5;
+  --clr-surface:   #ffffff;
+  --clr-primary:   #ff8800;
+  --clr-primary‑dark:#e67300;
+  --clr-danger:    #d94c48;
+  --clr-danger‑dark:#c13c39;
+  --clr-success:   #28a745;
+  --clr-success‑dark:#1f7a35;
+  --clr-text:      #333333;
+  --radius:        12px;
+  --shadow-s:      0 2px 4px rgba(0,0,0,.06);
+  --shadow-m:      0 4px 12px rgba(0,0,0,.08);
+  --trans:         all .25s ease;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--clr-bg);
+  color:var(--clr-text);
+  padding:40px 30px;
+}
+
+/* ───── Title & filter ───── */
+h1{
+  font-weight:700;
+  font-size:32px;
+  text-align:center;
+  margin-bottom:24px;
+  color:var(--clr-primary‑dark);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+h1::before{
+  content:"\f0c0";              /* 👥 (Font Awesome) fallback */
+  font-family:"Segoe UI Emoji";
+  font-size:34px;
+}
+
+.filter-form{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  background:#fff9ef;
+  border:1px solid #ffdc9e;
+  padding:10px 18px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-s);
+  margin:0 auto 28px;
+  width:max-content;
+}
+.filter-form label{font-weight:600}
+.filter-form select{
+  padding:8px 10px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:500;
+  transition:var(--trans);
+}
+.filter-form select:hover{border-color:var(--clr-primary)}
+
+/* ───── Table ───── */
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:var(--clr-surface);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow-m);
+}
+th,td{padding:16px 18px;text-align:center}
+th{
+  background:var(--clr-primary);
+  color:#fff;
+  font-weight:600;
+  user-select:none;
+}
+tbody tr:nth-child(even){background:rgba(0,0,0,.025)}
+tbody tr:hover{background:rgba(255,136,0,.07)}
+
+/* ───── Buttons ───── */
+.btn{
+  padding:8px 16px;
+  border:none;
+  border-radius:8px;
+  font-weight:600;
+  font-size:14px;
+  line-height:1;
+  cursor:pointer;
+  transition:var(--trans);
+  color:#fff;
+}
+.btn-role            {background:#0072e3;}
+.btn-role:hover      {background:#005dc0;}
+
+.btn-block           {background:var(--clr-danger);}
+.btn-block:hover     {background:var(--clr-danger‑dark);}
+
+.btn-unblock         {background:var(--clr-success);}
+.btn-unblock:hover   {background:var(--clr-success‑dark);}
+
+/* ───── Toast ───── */
+#toast{
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  background:#333;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:var(--radius);
+  font-size:15px;
+  box-shadow:var(--shadow-m);
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(20px);
+  transition:opacity .4s ease,transform .4s ease;
+  z-index:9999;
+}
+#toast.show{
+  opacity:1;
+  transform:translateY(0);
+}

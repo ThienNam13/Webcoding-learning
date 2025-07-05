@@ -130,5 +130,3 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
 <script src="assets/js/foods.js"></script>
 </body>
 </html>
-
-?>
