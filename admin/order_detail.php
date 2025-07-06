@@ -19,7 +19,7 @@ if ($order_id <= 0) {
 }
 
 // ✅ Lấy thông tin đơn hàng
-$stmtOrder = $conn->prepare("SELECT * FROM orders WHERE id = ?");
+$stmtOrder = $link->prepare("SELECT * FROM orders WHERE id = ?");
 $stmtOrder->bind_param("i", $order_id);
 $stmtOrder->execute();
 $orderResult = $stmtOrder->get_result();
@@ -31,10 +31,10 @@ if (!$order) {
 }
 
 // ✅ Lấy chi tiết món ăn
-$stmtItems = $conn->prepare("
+$stmtItems = $link->prepare("
     SELECT f.ten_mon, oi.so_luong, oi.don_gia, (oi.so_luong * oi.don_gia) AS thanh_tien
     FROM order_items oi
-    JOIN food f ON f.id = oi.food_id
+    JOIN foods f ON f.id = oi.food_id
     WHERE oi.order_id = ?
 ");
 $stmtItems->bind_param("i", $order_id);
@@ -47,7 +47,7 @@ $itemsResult = $stmtItems->get_result();
 <head>
   <meta charset="UTF-8">
   <title>Chi tiết đơn hàng #<?= $order['ma_don'] ?></title>
-  <link rel="stylesheet" href="assets/order_detail.css" />
+  <link rel="stylesheet" href="assets/css/order_detail.css" />
 </head>
 <body>
 
@@ -58,8 +58,8 @@ $itemsResult = $stmtItems->get_result();
       <tr>
         <th>Tên món</th>
         <th>Số lượng</th>
-        <th>Đơn giá (₫)</th>
-        <th>Thành tiền (₫)</th>
+        <th>Đơn giá</th>
+        <th>Thành tiền</th>
       </tr>
     </thead>
     <tbody>
