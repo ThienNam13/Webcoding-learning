@@ -1,6 +1,5 @@
 <?php $title = "Thực đơn | KFJoli"; $page = 'menu'; 
 include("header.php"); ?>
-<link rel="stylesheet" href="./assets/css/menu.css">
 <script src="./assets/js/add-to-cart.js"></script>
 <script src="./assets/js/menu.js"></script>
 <script src="./assets/js/search.js"></script>

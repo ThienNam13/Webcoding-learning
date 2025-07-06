@@ -79,6 +79,10 @@
       case 'gotoRegister':
         authFrame.src = 'register.php';
         break;
+      case 'closePopup':
+        popupFrame.style.display = 'none';
+        authFrame.src = '';
+        break;
     }
   });
 

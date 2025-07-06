@@ -31,16 +31,17 @@ $map = [
   }
   ?>
 
-  <div class="form-container">
-    <h2>Đăng nhập</h2>
-    <form id="loginForm" method="POST" action="php/auth/login.php">
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Mật khẩu" required />
-      <button type="submit">Đăng nhập</button>
-      <div class="form-link">
-        Chưa có tài khoản? <a href="#" onclick="window.parent.postMessage('gotoRegister', '*')">Đăng ký ngay</a>
-      </div>
-    </form>
-  </div>
+    <div class="form-container">
+      <h2>Đăng nhập</h2>
+      <form id="loginForm" method="POST" action="php/auth/login.php">
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Mật khẩu" required />
+        <button type="submit">Đăng nhập</button>
+        <div class="form-link">
+          Chưa có tài khoản? <a href="register.php" onclick="window.parent.postMessage('gotoRegister', '*')">Đăng ký ngay</a>
+        </div>
+      </form>
+    </div>
+
 </body>
 </html>

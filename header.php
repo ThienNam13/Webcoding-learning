@@ -54,20 +54,18 @@ session_start();
   </div>
 </div>
 
-<!-- Popup đăng nhập / đăng ký (ẩn mặc định) -->
-<div id="popupFrame" style="display:none">
-  <div class="popup-box">
-    <iframe id="authFrame" src="" style="width:420px;height:540px;border:none;border-radius:24px"></iframe>
-    <button class="popup-close" onclick="
-      document.getElementById('popupFrame').style.display='none';
-      document.getElementById('authFrame').src='';
-    ">&times;</button>
+<!-- Popup Đăng nhập/Đăng ký -->
+<div id="auth-popup" style="display:none">
+  <div id="auth-overlay"></div>
+  <div id="auth-box">
+    <button id="auth-close">&times;</button>
+    <iframe id="auth-frame" src="login.php?popup=1"></iframe>
   </div>
 </div>
 
 <script src="assets/js/auth.js"></script>
-<script src="./assets/js/search.js"></script>
 <script>
+  
 /* Đăng xuất */
 document.getElementById('btnLogout')?.addEventListener('click', () => {
   fetch('php/auth/logout.php')          // xoá session bên server
