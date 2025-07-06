@@ -16,7 +16,6 @@ include("header.php"); ?>
       <a href="#burger-com-my-y" class="tab">Burger - Cơm - Mỳ ý</a>
       <a href="#trang-mieng" class="tab">Tráng Miệng</a>  
       <?php if (isset($page) && $page === 'menu'): ?>
-  
               <form class="search tab">
                   <input type="text" id="searchInput" class="search-box" placeholder="Nhập món ăn cần tìm ...">
                   <button type="button" onclick="searchFood()">Tìm kiếm</button>

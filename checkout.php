@@ -84,13 +84,8 @@
   </form>
 </div>
 
-<<<<<<< HEAD
-<!-- Popup cảnh báo không giao hàng -->
-<div class="popup-overlay" id="popup-alert">
-=======
 <!-- ✅ Popup cảnh báo dùng chung -->
 <div class="popup-overlay" id="popup-alert" style="display: none;">
->>>>>>> a4536c97f9e6f73ab674b621e97ef2e34edce188
   <div class="popup-box">
     <h3>❌ Cảnh báo</h3>
     <p id="popup-message">Nội dung cảnh báo sẽ được thay đổi bằng JS</p>
@@ -109,30 +104,5 @@
 </div>
 
 <script src="assets/js/checkout.js"></script>
-<<<<<<< HEAD
-<script>
-  const checkoutForm = document.getElementById("checkout-form");
-
-  checkoutForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    document.getElementById("popup-confirm").style.display = "flex";
-  });
-
-  function submitRealOrder() {
-    document.getElementById("popup-confirm").style.display = "none";
-    checkoutForm.submit();
-  }
-
-  function closeConfirm() {
-    document.getElementById("popup-confirm").style.display = "none";
-  }
-
-  function closePopup() {
-    document.getElementById("popup-alert").style.display = "none";
-  }
-</script>
-=======
->>>>>>> a4536c97f9e6f73ab674b621e97ef2e34edce188
-
 </body>
 </html>

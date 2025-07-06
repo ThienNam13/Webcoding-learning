@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . '/../php/db.php';
 
 // Check admin role
@@ -20,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $stmt = $link->prepare($sql);
+      if (!$stmt) {
+        die("Không thể chuẩn bị câu lệnh SQL: " . $link->error);
+      }
     $stmt->bind_param('i', $id);
     $stmt->execute();
     $stmt->close();

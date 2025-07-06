@@ -1,8 +1,6 @@
-
 <?php
-session_start();
 require_once("../php/db.php");
-require_once 'auth_check.php';
+// require_once 'auth_check.php'; 
 
 // // Kiểm tra quyền admin
 // if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
@@ -132,4 +130,3 @@ $foods = $link->query("SELECT * FROM foods ORDER BY id DESC");
 <script src="assets/js/foods.js"></script>
 </body>
 </html>
-

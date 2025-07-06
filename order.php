@@ -10,41 +10,40 @@ if (!$ma_don) {
 }
 
 // Truy vấn đơn hàng
-$stmt = $link->prepare("SELECT * FROM orders WHERE ma_don = ?");
+$stmt = $link->prepare("SELECT ma_don, thoi_gian_dat, trang_thai, dia_chi, khu_vuc FROM orders WHERE ma_don = ?");
 $stmt->bind_param("s", $ma_don);
 $stmt->execute();
 $order = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
-if (!$order) {
-  echo "Không tìm thấy đơn hàng.";
-  exit;
-}
-
 // Truy vấn các món ăn trong đơn hàng
-$stmt = $link->prepare("
-  SELECT f.ten_mon, i.so_luong, i.don_gia 
-  FROM order_items i
-  JOIN foods f ON i.food_id = f.id
-  WHERE i.order_id = ?
+$stmt2 = $link->prepare("
+  SELECT f.ten_mon, oi.so_luong, oi.don_gia 
+  FROM order_items oi
+  JOIN foods f ON oi.food_id = f.id
+  WHERE oi.order_id = (
+    SELECT id FROM orders WHERE ma_don = ?
+  )
 ");
-$stmt->bind_param("i", $order['id']);
-$stmt->execute();
-$items = $stmt->get_result();
+$stmt2->bind_param("s", $ma_don);
+$stmt2->execute();
+$items = $stmt2->get_result();
+$stmt2->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Đặt hàng thành công</title>
+  <?php include("header.php"); ?>
   <link rel="stylesheet" href="assets/css/order.css" />
   <link rel="stylesheet" href="./assets/themify-icons-font/themify-icons/themify-icons.css">
+  <script src="assets/js/order.js"></script>
 </head>
 <body>
   <div id="app">
-    <?php include("header.php"); ?>
-
     <!-- ORDER CONTENT -->
     <div class="order-container">
       <h2>Cảm ơn bạn đã đặt hàng</h2>
@@ -53,6 +52,25 @@ $items = $stmt->get_result();
         <p><strong>Mã đơn hàng:</strong> #<?= htmlspecialchars($order['ma_don']) ?></p>
         <p><strong>Thời gian giao hàng dự kiến:</strong> 30 - 45 phút</p>
         <p><strong>Ngày đặt:</strong> <?= date('d/m/Y H:i', strtotime($order['thoi_gian_dat'])) ?></p>
+        <p><strong>Địa chỉ giao hàng:</strong> 
+          <?= htmlspecialchars($order['dia_chi']) ?>, <?= htmlspecialchars($order['khu_vuc']) ?>
+        </p>
+        <?php
+        function getStatusClass($status) {
+          return match ($status) {
+            'Đang xử lý' => 'status-pending',
+            'Đang giao' => 'status-shipping',
+            'Hoàn thành' => 'status-completed',
+            'Đã hủy' => 'status-canceled',
+            default => 'status-unknown',
+          };
+        }
+        ?>
+        <p><strong>Trạng thái hiện tại:</strong>
+          <span class="status <?= getStatusClass($order['trang_thai']) ?>">
+            <?= htmlspecialchars($order['trang_thai']) ?>
+          </span>
+        </p>
       </div>
 
       <div class="order-details">
@@ -94,11 +112,9 @@ $items = $stmt->get_result();
   </div>
 
   <?php include("footer.php"); ?>
-<<<<<<< HEAD
-=======
-
-  <script src="assets/js/order.js"></script>
-  <!-- Popup cảnh báo lỗi -->
+</body>
+</html>
+  <!-- Popup cảnh báo lỗi
 <div class="popup-overlay" id="popup-alert" style="display: none;">
   <div class="popup-box">
     <h3>Không thể tạo đơn hàng</h3>
@@ -106,58 +122,6 @@ $items = $stmt->get_result();
     <button class="popup-btn" onclick="closePopup()">Tôi hiểu rồi</button>
   </div>
 </div>
-
-<style>
-.popup-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.popup-box {
-  background: #fff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 400px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.popup-box h3 {
-  margin-bottom: 10px;
-  color: #c0392b;
-}
-
-.popup-box p {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.popup-btn {
-  background-color: #e74c3c;
-  color: #fff;
-  padding: 8px 18px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.popup-btn:hover {
-  background-color: #c0392b;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
 
 <script>
 function getParam(name) {
@@ -185,7 +149,5 @@ if (error) {
   document.getElementById("popup-message").innerText = message;
   document.getElementById("popup-alert").style.display = "flex";
 }
-</script>
->>>>>>> 2afbd2e79fdc55709672f6253cd085df1e2e648f
 </body>
 </html>

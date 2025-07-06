@@ -27,6 +27,18 @@
     <button class="pay-btn" id="checkout-btn">Thanh toán</button>
   </div>
 
+  <!-- Popup yêu cầu đăng nhập -->
+  <div class="popup-overlay" id="login-popup" style="display: none;">
+    <div class="popup-box">
+      <h3>⚠️ Vui lòng đăng nhập để đặt hàng</h3>
+      <div class="popup-buttons">
+        <button onclick="location.href='login.php'" class="btn-login">Đăng nhập ngay</button>
+        <button onclick="closeLoginPopup()" class="btn-close">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Modal sửa số lượng -->
   <div id="edit-modal" class="modal" style="display:none;">
     <div class="modal-content">
@@ -39,6 +51,9 @@
   </div>
 </div>
 
+<script>
+  window.isLoggedIn = <?= isset($_SESSION['user_id']) ? 'true' : 'false' ?>;
+</script>
 <script src="assets/js/cart.js"></script>
 
 <?php include("footer.php"); ?>

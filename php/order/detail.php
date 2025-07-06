@@ -48,6 +48,7 @@ header('Content-Type: application/json');
 echo json_encode([
     'order_id' => $ma_don,
     'tong_tien' => $order['tong_tien'],
+    "trang_thai": "Đang giao",
     'items' => $items
 ]);
 

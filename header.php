@@ -1,7 +1,6 @@
 <?php
-session_start(); 
+session_start();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -10,6 +9,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo isset($title) ? $title : "KFJoli"; ?></title>
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/menu.css">  <!-- style riêng của menu -->
   <link rel="stylesheet" href="./assets/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
@@ -65,7 +65,6 @@ session_start();
   </div>
 </div>
 
-<!-- ============ SCRIPT ============ -->
 <script src="assets/js/auth.js"></script>
 <script src="./assets/js/search.js"></script>
 <script>
