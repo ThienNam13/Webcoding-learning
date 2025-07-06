@@ -1,5 +1,6 @@
 <?php
-// require_once 'auth_check.php';
+session_start();
+require_once 'auth_check.php';
 require_once '../php/db.php';
 
 // --- Lọc theo trạng thái và ngày ---
@@ -51,6 +52,11 @@ $result = $stmt->get_result();
   <link rel="stylesheet" href="../assets/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
+
+<!-- Quay lại -->
+<div class="back-home">
+  <a href="dashboard.php" class="back-link">← Quay lại trang chủ</a>
+</div>
 
 <h1>Quản lý Đơn Hàng</h1>
 
@@ -110,11 +116,6 @@ $result = $stmt->get_result();
   </tr>
   <?php endwhile; ?>
 </table>
-
-<!-- Quay lại -->
-<div class="back-home">
-  <a href="dashboard.php" class="back-link">← Quay lại trang chủ</a>
-</div>
 
 </body>
 </html>

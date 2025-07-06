@@ -2,12 +2,6 @@
 session_start();
 require_once 'auth_check.php';
 
-// Kiểm tra quyền admin
-//if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
-//header("Location: login.php");
-//exit;
-//
-
 if (isset($_GET['action']) && $_GET['action']==='logout') {
   session_unset();
   session_destroy();

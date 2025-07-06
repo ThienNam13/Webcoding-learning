@@ -1,11 +1,6 @@
 <?php
 session_start();
-
-// ✅ Kiểm tra quyền admin nếu cần
-// if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-//     header("Location: login.php");
-//     exit;
-// }
+require_once 'auth_check.php';
 
 require_once '../php/db.php'; // Kết nối CSDL
 

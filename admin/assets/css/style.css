@@ -156,8 +156,8 @@ form label {
    Quay lại trang chủ
 ------------------------------ */
 .back-home {
-  text-align: center;
-  margin-top: 40px;
+  text-align: left;
+  margin-top: 10px;
   padding-bottom: 30px;
 }
 

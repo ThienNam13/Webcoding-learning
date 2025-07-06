@@ -39,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $_SESSION['fullname'] = $user['fullname'];
       $_SESSION['role']     = 'admin';
 
-
         session_regenerate_id(true);
         header('Location: dashboard.php?loginok=1');
         exit;

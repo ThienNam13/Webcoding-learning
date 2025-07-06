@@ -1,9 +1,8 @@
 <?php
 require_once __DIR__ . '/../php/db.php';
-
 // Check admin role
-
-
+session_start();
+require_once 'auth_check.php';
 // Xử lý filter role
 $roleFilter = $_GET['role'] ?? '';
 
@@ -53,7 +52,10 @@ $stmt->close();
 
 </head>
 <body>
-
+<!-- Quay lại -->
+<div class="back-home">
+  <a href="dashboard.php" class="back-link">← Quay lại trang chủ</a>
+</div>
 <h1>👥 Danh sách người dùng</h1>
 
 <form method="get" class="filter-form">
@@ -109,10 +111,6 @@ $stmt->close();
     <?php endwhile; ?>
   </tbody>
 </table>
-<!-- Quay lại -->
-<div class="back-home">
-  <a href="dashboard.php" class="back-link">← Quay lại trang chủ</a>
-</div>
 
 </body>
 </html>

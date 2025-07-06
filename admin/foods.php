@@ -7,7 +7,15 @@
   <link rel="stylesheet" href="../assets/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
-  <?php require_once("../php/db.php");?>
+<div class="back-home">
+  <a href="dashboard.php" class="back-link">← Quay lại trang chủ</a>
+</div>
+  <?php 
+  require_once("../php/db.php");
+//iểm tra quyền admin
+session_start();
+require_once 'auth_check.php';
+  ?>
 
 <div id="content">
   <div class="button-add-food">
@@ -51,13 +59,6 @@
   </div>
 
   <?php
-// require_once 'auth_check.php'; 
-
-// // Kiểm tra quyền admin
-// if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
-//   header("Location: login.php");
-//   exit;
-// }
 
 // Xử lý thêm món
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
@@ -152,10 +153,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" &&
   exit; // Dừng ở đây nếu là request JSON
 }
 ?>
-
-</div>
-<div class="back-home">
-  <a href="dashboard.php" class="back-link">← Quay lại trang chủ</a>
 </div>
 
 <script src="assets/js/foods.js"></script>

@@ -4,14 +4,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fffaf5;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
 .btn {
   background-color: #ff8800;
   color: white;
