@@ -20,12 +20,14 @@ $map = [
 </head>
 <body>
   <?php
-  if (!empty($_GET['msg']) && isset($map[$_GET['msg']])) {
-      echo '<p style="color:red;text-align:center;">'.$map[$_GET['msg']].'</p>';
+  $messageCode = $_GET['msg'] ?? null;
+  if ($messageCode && isset($map[$messageCode])) {
+    echo '<script>window.parent.postMessage("auth-msg:' . $messageCode . '", "*");</script>';
   }
 
-  if (!empty($_GET['msg']) && $_GET['msg'] === 'welcome') {
-      echo '<script>window.parent.postMessage("register-success", "*");</script>';
+  // Đăng ký thành công
+  if ($messageCode === 'welcome') {
+    echo '<script>window.parent.postMessage("register-success", "*");</script>';
   }
   ?>
   
@@ -41,7 +43,7 @@ $map = [
         </p>
         <button type="submit">Tạo tài khoản</button>
         <div class="form-link">
-          Đã có tài khoản? <a href="login.php" onclick="window.parent.postMessage('gotoLogin', '*')">Đăng nhập</a>
+          Đã có tài khoản? <a href="login.php?popup=1" onclick="window.parent.postMessage('gotoLogin', '*'); return false;">Đăng nhập</a>
         </div>
       </form>
     </div>

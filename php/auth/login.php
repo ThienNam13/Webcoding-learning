@@ -6,7 +6,7 @@ $email = trim($_POST['email']?? '');
 $password = $_POST['password']?? '';
 
 if ($email === '' || $password === '') {
-    header('Location: ../../login.php?msg=empty&popup=1');
+    header('Location: ../../login.php?msg=empty');
     exit;
 }
 
@@ -35,6 +35,11 @@ $_SESSION['user_id']  = $user['id'];
 $_SESSION['email']    = $email;
 $_SESSION['fullname'] = $user['fullname'];
 
-// Quay lại login.php để nó gửi postMessage("login-success")
+// Thành công
+$_SESSION['user_id']  = $user['id'];
+$_SESSION['email'] = $email;
+$_SESSION['fullname'] = $user['fullname'];
+
 header('Location: ../../login.php?msg=loginok&popup=1');
 exit;
+

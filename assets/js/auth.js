@@ -27,6 +27,14 @@ function closeAuthPopup() {
   iframe.src = "";
 }
 
+function openLoginPopup() {
+  sessionStorage.setItem("redirectAfterLogin", window.location.href);
+  const iframe = document.getElementById("auth-frame");
+  iframe.src = "login.php?popup=1";
+  iframe.style.height = "420px";
+  document.getElementById("auth-popup").style.display = "block";
+}
+
 document.getElementById("btnLogin")?.addEventListener("click", () => {
   sessionStorage.setItem("redirectAfterLogin", window.location.href);
   const iframe = document.getElementById("auth-frame");
@@ -41,11 +49,26 @@ window.addEventListener("message", (event) => {
   const iframe = document.getElementById("auth-frame");
   console.log("[auth.js] message received:", event.data);
 
+  if (event.data.startsWith("auth-msg:")) {
+    const msgCode = event.data.replace("auth-msg:", "");
+    let message = "Đã xảy ra lỗi!";
+    switch (msgCode) {
+      case "fail": message = "Email hoặc mật khẩu sai!"; break;
+      case "blocked": message = "Tài khoản bị khóa!"; break;
+      case "empty": message = "Vui lòng nhập Email và Mật khẩu!"; break;
+      case "invalid": message = "Thông tin không hợp lệ!"; break;
+      case "exists": message = "Email đã tồn tại!"; break;
+      case "invalid_email": message = "Email không hợp lệ!"; break;
+      case "notmatch": message = "Mật khẩu không khớp!"; break;
+    }
+    showToast(message, "#e74c3c");
+    return;
+  }
+
   switch (event.data) {
     case "login-success":
       showToast("Đăng nhập thành công!");
       closeAuthPopup();
-      
       const redirectURL = sessionStorage.getItem("redirectAfterLogin") || "index.php";
       setTimeout(() => {
         window.location.href = redirectURL;
