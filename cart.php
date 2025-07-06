@@ -32,7 +32,7 @@
     <div class="popup-box">
       <h3>⚠️ Vui lòng đăng nhập để đặt hàng</h3>
       <div class="popup-buttons">
-        <button onclick="location.href='login.php'" class="btn-login">Đăng nhập ngay</button>
+        <button class="btn-login" onclick="openLoginPopup()">Đăng nhập ngay</button>
         <button onclick="closeLoginPopup()" class="btn-close">Đóng</button>
       </div>
     </div>

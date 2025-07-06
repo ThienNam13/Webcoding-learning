@@ -6,7 +6,9 @@ $map = [
   'fail'    => 'Email hoặc mật khẩu chưa đúng.',
   'blocked' => 'Tài khoản này đã bị khóa!',
   'welcome' => 'Đăng ký thành công!',
-  'loginok' => 'Đăng nhập thành công!'
+  'loginok' => 'Đăng nhập thành công!',
+  'notmatch'    => 'Mật khẩu và xác nhận không khớp!',
+  'invalid_email' => 'Email không hợp lệ!',
 ];
 ?>
 
@@ -18,12 +20,14 @@ $map = [
 </head>
 <body>
   <?php
-  if (!empty($_GET['msg']) && isset($map[$_GET['msg']])) {
-      echo '<p style="color:red;text-align:center;">'.$map[$_GET['msg']].'</p>';
+  $messageCode = $_GET['msg'] ?? null;
+  if ($messageCode && isset($map[$messageCode])) {
+    echo '<script>window.parent.postMessage("auth-msg:' . $messageCode . '", "*");</script>';
   }
 
-  if (!empty($_GET['msg']) && $_GET['msg'] === 'welcome') {
-      echo '<script>window.parent.postMessage("register-success", "*");</script>';
+  // Đăng ký thành công
+  if ($messageCode === 'welcome') {
+    echo '<script>window.parent.postMessage("register-success", "*");</script>';
   }
   ?>
   
@@ -39,10 +43,50 @@ $map = [
         </p>
         <button type="submit">Tạo tài khoản</button>
         <div class="form-link">
-          Đã có tài khoản? <a href="login.php" onclick="window.parent.postMessage('gotoLogin', '*')">Đăng nhập</a>
+          Đã có tài khoản? <a href="login.php?popup=1" onclick="window.parent.postMessage('gotoLogin', '*'); return false;">Đăng nhập</a>
         </div>
       </form>
     </div>
+    <div id="toast" class="toast hidden">
+      <span id="toast-msg"></span>
+    </div>
+
+<script>
+function showToast(message, type = "error") {
+  const toast = document.getElementById("toast");
+  const msg = document.getElementById("toast-msg");
+  msg.textContent = message;
+
+  toast.className = "toast show";
+  if (type === "success") toast.classList.add("success");
+  else if (type === "warning") toast.classList.add("warning");
+
+  setTimeout(() => {
+    toast.className = "toast hidden";
+  }, 3000);
+}
+
+document.getElementById("registerForm").addEventListener("submit", function (e) {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirm_password").value;
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    showToast("Email không hợp lệ!", "warning");
+    e.preventDefault();
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    showToast("Mật khẩu và xác nhận mật khẩu không khớp!");
+    e.preventDefault();
+    return;
+  }
+
+});
+</script>
+
 
 </body>
 </html>

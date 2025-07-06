@@ -18,23 +18,28 @@ $user = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
 if (!$user) {
-    header('Location: ../../login.php?msg=fail');  // tài khoản không tồn tại
+    header('Location: ../../login.php?msg=fail&popup=1');
     exit;
 }
-if ($user['blocked']) {                            // bị chặn → thoát
-    header('Location: ../../login.php?msg=blocked');
+if ($user['blocked']) {
+    header('Location: ../../login.php?msg=blocked&popup=1');
     exit;
 }
 if (!password_verify($password, $user['password'])) {
-    header('Location: ../../login.php?msg=fail');  // sai mật khẩu
+    header('Location: ../../login.php?msg=fail&popup=1');
     exit;
 }
 
-// Thành công gọi
+// Đăng nhập thành công
+$_SESSION['user_id']  = $user['id'];
+$_SESSION['email']    = $email;
+$_SESSION['fullname'] = $user['fullname'];
+
+// Thành công
 $_SESSION['user_id']  = $user['id'];
 $_SESSION['email'] = $email;
 $_SESSION['fullname'] = $user['fullname'];
 
-// CHUYỂN VỀ login.php và bật cờ flag "loginok"
 header('Location: ../../login.php?msg=loginok&popup=1');
 exit;
+

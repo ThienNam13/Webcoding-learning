@@ -48,6 +48,7 @@ $result = $stmt->get_result();
   <meta charset="UTF-8">
   <title>Quản lý Đơn Hàng | Admin</title>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" href="../assets/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
 
@@ -71,7 +72,6 @@ $result = $stmt->get_result();
   <input type="date" name="date" id="date" value="<?= htmlspecialchars($filter_date) ?>">
 
   <button type="submit">Lọc</button>
-  
 </form>
 
 <table border="1" cellpadding="8" cellspacing="0">
@@ -85,33 +85,36 @@ $result = $stmt->get_result();
   </tr>
 
   <?php while ($row = $result->fetch_assoc()): ?>
-<tr>
-  <td><?= htmlspecialchars($row['ma_don']) ?></td>
-  <td><?= htmlspecialchars($row['ho_ten']) ?></td>
-  <td><?= date("d/m/Y H:i", strtotime($row['thoi_gian_dat'])) ?></td>
-  <td><?= number_format($row['tong_tien'], 0, ',', '.') ?>₫</td>
-  <td>
-    <form method="post">
-      <input type="hidden" name="order_id" value="<?= $row['id'] ?>">
-      <select name="new_status">
-        <?php foreach ($statuses as $status): ?>
-          <option value="<?= $status ?>" <?= $row['trang_thai'] == $status ? 'selected' : '' ?>><?= $status ?></option>
-        <?php endforeach; ?>
-      </select>
-      <button type="submit">Cập nhật</button>
-    </form>
-  </td>
-  <td>
-    <a href="order_detail.php?id=<?= $row['id'] ?>">
-      <i class="icon-edit ti-eye"></i>
-    </a>
-  </td>
+  <tr>
+    <td><?= htmlspecialchars($row['ma_don']) ?></td>
+    <td><?= htmlspecialchars($row['ho_ten']) ?></td>
+    <td><?= date("d/m/Y H:i", strtotime($row['thoi_gian_dat'])) ?></td>
+    <td><?= number_format($row['tong_tien'], 0, ',', '.') ?>₫</td>
+    <td>
+      <form method="post">
+        <input type="hidden" name="order_id" value="<?= $row['id'] ?>">
+        <select name="new_status">
+          <?php foreach ($statuses as $status): ?>
+            <option value="<?= $status ?>" <?= $row['trang_thai'] == $status ? 'selected' : '' ?>><?= $status ?></option>
+          <?php endforeach; ?>
+        </select>
+        <button type="submit">Cập nhật</button>
+      </form>
+    </td>
+    <td class="icon-cell">
+      <a href="order_detail.php?id=<?= $row['id'] ?>">
+        <i class="ti-eye"></i>
+      </a>
+    </td>
 
-
-</tr>
-<?php endwhile; ?>
-
+  </tr>
+  <?php endwhile; ?>
 </table>
-<a href="dashboard.php"><button>← Quay lại danh sách</button></a>
+
+<!-- Quay lại -->
+<div class="back-home">
+  <a href="dashboard.php" class="back-link">← Quay lại trang chủ</a>
+</div>
+
 </body>
 </html>

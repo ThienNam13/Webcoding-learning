@@ -23,7 +23,7 @@ $user_id = $_SESSION['user_id'] ?? null;
     <div class="login-warning-box">
       <h2>Bạn chưa đăng nhập</h2>
       <p>Vui lòng đăng nhập để xem lịch sử đơn hàng của bạn.</p>
-      <a href="login.php" class="login-warning-btn" onclick="openLoginPopup()">Đăng nhập ngay</a>
+      <button class="login-warning-btn" onclick="openLoginPopup()">Đăng nhập ngay</button>
     </div>
 
   <?php else: ?>
@@ -63,5 +63,6 @@ $user_id = $_SESSION['user_id'] ?? null;
 
   <?php include("footer.php"); ?>
 </div>
+<script src="assets/js/auth.js"></script>
 </body>
 </html>

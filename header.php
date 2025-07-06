@@ -65,9 +65,9 @@ session_start();
 
 <script src="assets/js/auth.js"></script>
 <script>
-  
+
 /* Đăng xuất */
-document.getElementById('btnLogout')?.addEventListener('click', () => {
+document.getElementById('btnLogout')?.addEventListener('click', (openLoginPopup) => {
   fetch('php/auth/logout.php')          // xoá session bên server
     .then(() => location.reload());     // reload để cập nhật header
 });
