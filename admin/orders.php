@@ -81,31 +81,37 @@ $result = $stmt->get_result();
     <th>Thời Gian Đặt</th>
     <th>Tổng Tiền</th>
     <th>Trạng Thái</th>
+    <th>Xem chi tiết</th>
   </tr>
 
   <?php while ($row = $result->fetch_assoc()): ?>
-    <tr>
-      <td><?= htmlspecialchars($row['ma_don']) ?></td>
-      <td><?= htmlspecialchars($row['ho_ten']) ?></td>
-      <td><?= date("d/m/Y H:i", strtotime($row['thoi_gian_dat'])) ?></td>
-      <td><?= number_format($row['tong_tien'], 0, ',', '.') ?>₫</td>
-      <td>
-        <form method="post">
-          <input type="hidden" name="order_id" value="<?= $row['id'] ?>">
-          <select name="new_status">
-            <?php
-              foreach ($statuses as $status) {
-                $selected = ($row['trang_thai'] == $status) ? 'selected' : '';
-                echo "<option value=\"$status\" $selected>$status</option>";
-              }
-            ?>
-          </select>
-          <button type="submit">Cập nhật</button>
-        </form>
-      </td>
-    </tr>
-  <?php endwhile; ?>
-</table>
+<tr>
+  <td><?= htmlspecialchars($row['ma_don']) ?></td>
+  <td><?= htmlspecialchars($row['ho_ten']) ?></td>
+  <td><?= date("d/m/Y H:i", strtotime($row['thoi_gian_dat'])) ?></td>
+  <td><?= number_format($row['tong_tien'], 0, ',', '.') ?>₫</td>
+  <td>
+    <form method="post">
+      <input type="hidden" name="order_id" value="<?= $row['id'] ?>">
+      <select name="new_status">
+        <?php foreach ($statuses as $status): ?>
+          <option value="<?= $status ?>" <?= $row['trang_thai'] == $status ? 'selected' : '' ?>><?= $status ?></option>
+        <?php endforeach; ?>
+      </select>
+      <button type="submit">Cập nhật</button>
+    </form>
+  </td>
+  <td>
+    <a href="order_detail.php?id=<?= $row['id'] ?>">
+      <i class="icon-edit ti-eye"></i>
+    </a>
+  </td>
 
+
+</tr>
+<?php endwhile; ?>
+
+</table>
+<a href="dashboard.php"><button>← Quay lại danh sách</button></a>
 </body>
 </html>

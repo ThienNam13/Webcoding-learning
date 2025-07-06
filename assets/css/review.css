@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+  background-color: #fffaf5;
+  color: #333;
+  line-height: 1.5;
+}
+
+.form-review form{
+    padding: 0 30px 10px;
+    width: 350px;
+    background-color: rgb(253, 187, 64);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.rating{
+    padding-bottom: 5px;
+    font-size: 40px;
+    color: #e67300;
+    text-align: center;
+}
+
+.comment textarea{
+    padding: 10px;
+    width: 100%;
+    height:100px;
+    border: none;
+    border-radius: 10px;
+}
+
+.comment textarea:hover{
+    border: none;
+}
