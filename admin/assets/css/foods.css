@@ -32,38 +32,50 @@ html, body {
     background-color: #000;
 }
 
-.add-food{
+.form-add-food{
     padding: 30px 20px 20px;
-    display: none;
+    width:350px;
     background-color: rgb(246, 207, 134);
     border-radius: 20px;
     display: inline-block;
     text-align: center;
 }
 
-.add-food h3{
+.form-add-food h3{
     padding-bottom: 20px;
-    display: none;
+    display: block;
 }
 
-.attri{
+.attri {
     padding-bottom: 10px;
     display: flex;
+    align-items: center;
+    gap: 10px;
 }
-
-.attri .name-attri{
+.name-attri {
     width: 35%;
-    text-align: left;
+    font-weight: bold;
 }
 
-.attri input, .attri select{
-    width: 65%;
-    border-radius: 5px;
+input, select,textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
 }
 
-.button-submit{
+.button-submit input {
     border: none;
-    background-color: #e67300,
+    background-color: #e67300;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button-submit input:hover {
+    background-color: #000;
+    color: #e67300;
 }
 
 /* Table foods */
@@ -86,38 +98,10 @@ td{
     border: 2px rgb(246, 207, 134) solid;
 }
 
-td a{
+td .edit-btn,td .save-btn, td .cancel-btn{
     font-size: 20px;
-    text-decoration: none;
+    background-color: #fff;
+    border:none;
 }
 
-.icon-edit{
-    color: rgb(240, 221, 18);
-}
 
-.icon-edit:hover{
-    color: rgb(121, 112, 10);
-}
-
-.icon-trash{
-    color: red;
-}
-
-.icon-trash:hover{
-    color: rgb(122, 4, 4);
-}
-
-.open{
-    display: flex;
-}
-
-@keyframes FadeIn {
-  from{
-    opacity: 0;
-    transform:translateY(-200px);
-  }
-  to{
-    opacity: 1;
-    transform:translateY(0);
-  }
-}
