@@ -61,5 +61,6 @@ $user_id = $_SESSION['user_id'] ?? null;
 
   <?php include("footer.php"); ?>
 </div>
+<script src="assets/js/auth.js"></script>
 </body>
 </html>

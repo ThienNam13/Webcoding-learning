@@ -12,12 +12,12 @@ $confirm_password =       $_POST['confirm_password'] ?? '';
 $emailRegex    = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
 $passwordRegex = '/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&^_-])[A-Za-z\d@$!%*#?&^_-]{6,}$/';
 
-if (
-    !preg_match($emailRegex, $email) ||
-    !preg_match($passwordRegex, $password) ||
-    $password !== $confirm_password
-){
-    header('Location: ../../register.php?msg=invalid');
+if (!preg_match($emailRegex, $email)) {
+    header('Location: ../../register.php?msg=invalid_email');
+    exit;
+}
+if ($password !== $confirm_password) {
+    header('Location: ../../register.php?msg=notmatch');
     exit;
 }
 
