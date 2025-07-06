@@ -1,6 +1,11 @@
 <?php
 session_start();
 require_once("php/db.php");
+if (empty($_SESSION['user_id'])) {
+    // Chưa đăng nhập → chuyển về login
+    header('Location: login.php');
+    exit;
+}
 
 $ma_don = $_GET['order_id'] ?? '';
 
@@ -10,11 +15,23 @@ if (!$ma_don) {
 }
 
 // Truy vấn đơn hàng
-$stmt = $link->prepare("SELECT ma_don, thoi_gian_dat, trang_thai, dia_chi, khu_vuc FROM orders WHERE ma_don = ?");
+$stmt = $link->prepare("SELECT ma_don, thoi_gian_dat, trang_thai, dia_chi, phuong_xa, khu_vuc, hinh_thuc_thanh_toan, user_id, ghi_chu FROM orders WHERE ma_don = ?");
 $stmt->bind_param("s", $ma_don);
 $stmt->execute();
 $order = $stmt->get_result()->fetch_assoc();
+$paymentMethods = [
+    'bank' => 'Chuyển khoản',
+    'cod'  => 'Tiền mặt'
+];
+$paymentDisplay = $paymentMethods[$order['hinh_thuc_thanh_toan']] ?? 'Không xác định';
 $stmt->close();
+
+// Kiểm tra đúng tài khoản
+if (!$order || $order['user_id'] != $_SESSION['user_id']) {
+    // Nếu không tìm thấy đơn hoặc không phải của user hiện tại
+    header('Location: history.php');
+    exit;
+}
 
 // Truy vấn các món ăn trong đơn hàng
 $stmt2 = $link->prepare("
@@ -52,8 +69,10 @@ $stmt2->close();
         <p><strong>Mã đơn hàng:</strong> #<?= htmlspecialchars($order['ma_don']) ?></p>
         <p><strong>Thời gian giao hàng dự kiến:</strong> 30 - 45 phút</p>
         <p><strong>Ngày đặt:</strong> <?= date('d/m/Y H:i', strtotime($order['thoi_gian_dat'])) ?></p>
+        <p><strong>Phương thức thanh toán:</strong> <?= htmlspecialchars($paymentDisplay) ?></p>
+        <p><strong>Ghi chú đơn hàng:</strong> <?= htmlspecialchars($order['ghi_chu']) ?></p>
         <p><strong>Địa chỉ giao hàng:</strong> 
-          <?= htmlspecialchars($order['dia_chi']) ?>, <?= htmlspecialchars($order['khu_vuc']) ?>
+          <?= htmlspecialchars($order['dia_chi']) ?>, <?= htmlspecialchars($order['phuong_xa']) ?>, <?= htmlspecialchars($order['khu_vuc']) ?>
         </p>
         <?php
         function getStatusClass($status) {

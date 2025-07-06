@@ -20,6 +20,7 @@ $user_id = $_SESSION['user_id'] ?? null;
 $fullname = $_POST['fullname'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
+$ward = trim($_POST['ward'] ?? '');
 $region = $_POST['region'];
 $note = $_POST['note'] ?? '';
 $payment = $_POST['payment_method'] ?? 'cod';
@@ -55,8 +56,8 @@ foreach ($cart as $item) {
 $total += $shipping_fee;
 
 // Tạo đơn hàng trước (chưa có mã đơn)
-$stmt = $link->prepare("INSERT INTO orders (user_id, ho_ten, sdt, dia_chi, khu_vuc, tong_tien, ghi_chu, hinh_thuc_thanh_toan) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("issssdss",  $user_id, $fullname, $phone, $address, $region, $total, $note, $payment);
+$stmt = $link->prepare("INSERT INTO orders (user_id, ho_ten, sdt, dia_chi, phuong_xa, khu_vuc, tong_tien, ghi_chu, hinh_thuc_thanh_toan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("isssssdss",  $user_id, $fullname, $phone, $address, $ward, $region, $total, $note, $payment);
 $stmt->execute();
 $order_id = $stmt->insert_id;
 $stmt->close();
