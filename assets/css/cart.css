@@ -99,6 +99,13 @@ button:disabled {
   text-align: center;
 }
 
+.modal-content button {
+  padding:5px 10px;
+  border: none;
+  background-color: #e65c00;
+  border-radius: 5px;
+}
+
 .close {
   float: right;
   cursor: pointer;
@@ -130,7 +137,7 @@ button:disabled {
   color: #c0392b;
 }
 
-.popup-buttons .btn-login, .popup-buttons .btn-close {
+.popup-buttons .btn-login, .popup-buttons .btn-close{
   background-color: #ff6600;
   color: white;
   padding: 8px 18px;

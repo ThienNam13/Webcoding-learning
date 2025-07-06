@@ -1,5 +1,5 @@
 <?php
-// require_once 'auth_check.php';
+require_once 'auth_check.php';
 require_once '../php/db.php';
 
 // --- Lọc theo trạng thái và ngày ---

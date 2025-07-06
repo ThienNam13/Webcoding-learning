@@ -46,8 +46,6 @@ $user_id = $_SESSION['user_id'] ?? null;
               <p><strong>Ngày đặt:</strong> <?php echo date("d/m/Y", strtotime($row['thoi_gian_dat'])); ?></p>
               <p><strong>Tổng tiền:</strong> <?php echo number_format($row['tong_tien'], 0, ',', '.'); ?>₫</p>
               <button class="btn" onclick="window.location.href='order.php?order_id=<?php echo urlencode($row['ma_don']); ?>'">Xem chi tiết</button>
-              <button class="btn" onclick="window.location.href='order.php?review_id=<?php echo urlencode($row['ma_don']); ?>'">Đánh giá</button>
-
             </div>
           <?php endwhile; ?>
         <?php else: ?>

@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../php/db.php';
 
 // Check admin role
-
+require_once 'auth_check.php'; 
 
 // Xử lý filter role
 $roleFilter = $_GET['role'] ?? '';
