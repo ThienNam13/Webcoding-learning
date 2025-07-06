@@ -46,7 +46,7 @@ session_start();
 
   <div id="extra-nav">
     <div class="container-extra">
-      <button><a href="#type-food"><b>Đặt hàng ngay</b></a></button>
+      <button><a href="menu.php"><b>Đặt hàng ngay</b></a></button>
       <div class="shopping-cart">
         <a href="cart.php"><i class="icon-cart ti-shopping-cart"></i></a>
       </div>
