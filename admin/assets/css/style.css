@@ -128,3 +128,27 @@ form label {
   opacity: 1;
 }
 
+/* Ô chứa icon */
+td a {
+  display: inline-block;
+  background-color: #ff8800;
+  padding: 8px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+/* Icon con mắt */
+td a .ti-eye {
+  font-size: 16px;
+}
+
+/* Hover đẹp */
+td a:hover {
+  background-color: #e67300;
+  transform: scale(1.1);
+}
+
+
+
