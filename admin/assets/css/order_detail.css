@@ -56,7 +56,6 @@ tr:last-child td {
   border-radius: 6px;
 }
 
-/* Nút mặc định nếu có thêm sau này */
 button {
   background-color: #FF6600;
   color: white;

@@ -12,9 +12,9 @@
 </div>
   <?php 
   require_once("../php/db.php");
-//iểm tra quyền admin
-session_start();
-require_once 'auth_check.php';
+  //Kiểm tra quyền admin
+  session_start();
+  require_once 'auth_check.php';
   ?>
 
 <div id="content">

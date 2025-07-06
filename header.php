@@ -46,7 +46,7 @@ session_start();
 
   <div id="extra-nav">
     <div class="container-extra">
-      <button><a href="#type-food"><b>Đặt hàng ngay</b></a></button>
+      <button><a href="menu.php"><b>Đặt hàng ngay</b></a></button>
       <div class="shopping-cart">
         <a href="cart.php"><i class="icon-cart ti-shopping-cart"></i></a>
       </div>
@@ -69,6 +69,6 @@ session_start();
 /* Đăng xuất */
 document.getElementById('btnLogout')?.addEventListener('click', (openLoginPopup) => {
   fetch('php/auth/logout.php')          // xoá session bên server
-    .then(() => location.reload());     // reload để cập nhật header
+    .then(() => location.reload());     // reload cập nhật header
 });
 </script>

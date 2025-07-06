@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once 'auth_check.php';
 require_once '../php/db.php';
+require_once 'auth_check.php';
 
 // --- Lọc theo trạng thái và ngày ---
 $filter_status = $_GET['status'] ?? '';

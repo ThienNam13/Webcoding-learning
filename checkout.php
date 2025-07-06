@@ -1,5 +1,8 @@
 <?php
   $pageTitle = "Thanh toán đơn hàng";
+  session_start();
+
+  $user_id = $_SESSION['user_id'] ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -57,7 +60,7 @@
 
     <!-- Ghi chú -->
     <div class="section">
-      <div class="section-title">Ghi chú cho tài xế</div>
+      <div class="section-title">Ghi chú cho đơn hàng</div>
       <textarea name="note" rows="3" placeholder="VD: Giao trước 12h, gọi trước khi đến..."></textarea>
     </div>
 
@@ -84,7 +87,7 @@
   </form>
 </div>
 
-<!-- ✅ Popup cảnh báo dùng chung -->
+<!-- Popup cảnh báo lỗi-->
 <div class="popup-overlay" id="popup-alert" style="display: none;">
   <div class="popup-box">
     <h3>❌ Cảnh báo</h3>
