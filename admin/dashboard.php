@@ -1,10 +1,15 @@
 <?php
+<<<<<<< HEAD
+session_start();
+//require_once 'auth_check.php';
+=======
 // require_once 'auth_check.php';
+>>>>>>> 6a9097b6df4e2229e53b0d3011aeeef8cdd2e79a
 // Kiểm tra quyền admin
 //if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
 //header("Location: login.php");
 //exit;
-//}
+//
 
 if (isset($_GET['action']) && $_GET['action']==='logout') {
   session_unset();
@@ -61,7 +66,6 @@ $adminName = $_SESSION['fullname'] ?? 'Admin';
       <a href="stats.php">Truy cập</a>
     </div>
   </div>
-
 <div id="toast" class="toast" style="display:none;"></div>
   <script>
     function showToast(msg){
