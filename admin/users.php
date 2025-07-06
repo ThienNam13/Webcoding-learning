@@ -109,6 +109,10 @@ $stmt->close();
     <?php endwhile; ?>
   </tbody>
 </table>
+<!-- Quay lại -->
+<div class="back-home">
+  <a href="dashboard.php" class="back-link">← Quay lại trang chủ</a>
+</div>
 
 </body>
 </html>

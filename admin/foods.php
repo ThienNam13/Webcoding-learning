@@ -154,6 +154,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" &&
 ?>
 
 </div>
+<div class="back-home">
+  <a href="dashboard.php" class="back-link">← Quay lại trang chủ</a>
+</div>
+
 <script src="assets/js/foods.js"></script>
 </body>
 </html>
