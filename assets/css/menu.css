@@ -71,6 +71,14 @@
   width: 300px;
 }
 
+.popup-box #popup-confirm,.popup-box #popup-cancel{
+  padding: 10px;
+  background-color: #d35400;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+}
+
 .toast-message {
   position: fixed;
   bottom: -60px;

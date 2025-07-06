@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="../assets/themify-icons-font/themify-icons/themify-icons.css">
 </head>
 <body>
-  <?php require_once("../php/db.php");?>
+  <?php require_once("../php/db.php");
+  session_start();
+  ?>
 
 <div id="content">
   <div class="button-add-food">
@@ -51,13 +53,7 @@
   </div>
 
   <?php
-// require_once 'auth_check.php'; 
-
-// // Kiểm tra quyền admin
-// if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
-//   header("Location: login.php");
-//   exit;
-// }
+require_once 'auth_check.php'; 
 
 // Xử lý thêm món
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {

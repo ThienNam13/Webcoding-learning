@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!container) continue;
 
         foods.forEach(food => {
+          if (food.is_available == 0) return;
           container.insertAdjacentHTML("beforeend", `
             <div class="food-card">
               <img src="./${food.hinh_anh}" alt="${food.ten_mon}">
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <button class="btn-add" data-id="${food.id}">Thêm món</button>
             </div>
           `);
+
         });
       }
 
