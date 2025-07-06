@@ -40,6 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
     attachDeleteEvents();
     attachEditEvents();
     checkoutBtn.onclick = () => {
+      if (!window.isLoggedIn) {
+        document.getElementById("login-popup").style.display = "flex";
+        return;
+      }
+
       if (cart.length > 0) {
         window.location.href = "checkout.php";
       }
@@ -90,6 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.onclick = (e) => {
       if (e.target === modal) modal.style.display = "none";
     };
+  }
+
+  window.closeLoginPopup = function () {
+    document.getElementById("login-popup").style.display = "none";
   }
 
   renderCart();
