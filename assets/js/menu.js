@@ -33,4 +33,21 @@ document.addEventListener("DOMContentLoaded", () => {
       // Khởi động lại nút thêm giỏ
       initAddToCart();
     });
+    
+
 });
+
+function initAddToCart() {
+  const buttons = document.querySelectorAll(".btn-add");
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const itemId = btn.dataset.id;
+      
+      // Gọi hàm cập nhật cookie
+      updateRecentlyViewed(itemId);
+      
+      // Logic thêm món vào giỏ (nếu có)
+      // addToCart(itemId); // giả sử bạn có hàm này
+    });
+  });
+}

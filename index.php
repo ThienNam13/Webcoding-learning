@@ -36,8 +36,39 @@
 
   <!-- Best-seller -->
   <div class="best-seller section-content">
-  <div class="clear"></div>
+    <div class="clear"></div>
     <div class="section-name"><b>---------- Khách Hàng <a style="color: #000;">Mê FOOD</a> Ê Hề ---------</b></div>
+  <?php
+require_once "php/db.php";
+
+function getFoodById($id, $link) {
+  $stmt = mysqli_prepare($link, "SELECT * FROM foods WHERE id = ?");
+  mysqli_stmt_bind_param($stmt, "i", $id);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+  return mysqli_fetch_assoc($result);
+}
+
+$recentViewed = isset($_COOKIE['recentViewedItems']) ? explode(",", $_COOKIE['recentViewedItems']) : [];
+
+if (!empty($recentViewed)) {
+  echo "<div class='food-title'><h2>Đã xem gần đây</h2><div class='food-container'>";
+  foreach ($recentViewed as $id) {
+    $food = getFoodById($id, $link);
+    if ($food) {
+      echo "
+      <div class='food-card'>
+        <img src='./{$food['hinh_anh']}' alt='{$food['ten_mon']}'>
+        <h3>{$food['ten_mon']}</h3>
+        <p>{$food['mo_ta']}</p>
+        <p class='price'>".number_format($food['gia'])."₫</p>
+      </div>";
+    }
+  }
+  echo "</div></div>";
+}
+?>
+
   </div>
 
   <!-- Giới thiệu -->
@@ -60,5 +91,8 @@
     </button>
   </div>
 </div>
+
 <script src="assets/js/auth.js"></script>
+<!--<script src="assets/js/main.js"></script> -->
+
 <?php include("footer.php"); ?>
