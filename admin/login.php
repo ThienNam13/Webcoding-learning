@@ -30,14 +30,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   } elseif ($user['role'] !== 'admin') {
       $error = 'Tài khoản này không có quyền quản trị!';
   } elseif ($user['blocked']) {                     // ⇦ NEW
-    $error = 'Tài khoản đã bị khóa!';  
+      $error = 'Tài khoản đã bị khóa!';  
   } elseif (!password_verify($password, $user['password'])) {
       $error = 'Sai mật khẩu!';
   } else {
       /* Thành công */
-      $_SESSION['user_id']  = $user['id'];
-      $_SESSION['fullname'] = $user['fullname'];
-      $_SESSION['role']     = 'admin';
+      $_SESSION['admin_id']  = $user['id'];
+      $_SESSION['admin_fullname'] = $user['fullname'];
+      $_SESSION['admin_role']     = 'admin';
+
 
         session_regenerate_id(true);
         header('Location: dashboard.php?loginok=1');

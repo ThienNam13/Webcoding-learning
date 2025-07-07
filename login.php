@@ -1,4 +1,3 @@
-
 <?php
   if (isset($_GET['error'])) echo "<script>alert('Sai tài khoản hoặc mật khẩu');</script>";
 ?>
@@ -18,12 +17,19 @@ $map = [
   'exists'  => 'Email đã tồn tại.',
   'empty'   => 'Vui lòng nhập Email và Mật khẩu.',
   'fail'    => 'Email hoặc mật khẩu chưa đúng.',
+  'blocked' => 'Tài khoản đã bị khóa!',
   'welcome' => 'Đăng ký thành công!',
   'loginok' => 'Đăng nhập thành công!'
 ];
 
 $messageCode = $_GET['msg'] ?? null;
 if ($messageCode && isset($map[$messageCode])) {
+    // Nếu load dạng trang bình thường
+    if (empty($_GET['popup'])) {
+        echo '<p style="color:red;text-align:center;">' . htmlspecialchars($map[$messageCode]) . '</p>';
+    }
+
+    // Nếu load trong iframe (popup), gửi message cho auth.js
     echo '<script>window.parent.postMessage("auth-msg:' . $messageCode . '", "*");</script>';
 }
 

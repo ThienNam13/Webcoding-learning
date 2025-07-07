@@ -53,7 +53,7 @@ function validateForm() {
 
   const validNameRegex = /^(?=.*[\p{L}])[ \p{L}'.-]{4,}$/u;
   const validPhoneRegex = /^(0|\+84)[0-9]{8,10}$/;
-  const validAddressRegex = /^\d[\d\/\-]{0,10}\s+[\p{L}\s\d'.\-]{3,}$/u;
+  const validAddressRegex = /^\d[\d\/\-]{0,10}\s+([\p{L}]{2,}\s?){1,}$/u;
 
   if (!validNameRegex.test(fullname)) {
     showError("Họ tên không hợp lệ."); return false;
@@ -65,7 +65,7 @@ function validateForm() {
     showError("Địa chỉ không hợp lệ."); return false;
   }
 
-  // Nếu hợp lệ thì set dữ liệu giỏ hàng
+  // Nếu hợp lệ thì reset dữ liệu giỏ hàng
   const cart = localStorage.getItem("cart") || "[]";
   document.getElementById("cart-data").value = cart;
 

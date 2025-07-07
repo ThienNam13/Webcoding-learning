@@ -35,7 +35,7 @@
       </div>
       <div class="input-group">
         <label for="ward">Phường / Xã</label>
-        <input type="text" id="ward" name="ward" list="ward-list" required placeholder="Chọn phường gần Bình Thạnh (trong 10km)">
+        <input type="text" id="ward" name="ward" list="ward-list" required placeholder="Chọn phường sau sáp nhập)">
         <datalist id="ward-list">
           <option value="Phường Bình Thạnh">
           <option value="Phường Tân Sơn Nhất">
