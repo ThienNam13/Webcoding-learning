@@ -3,6 +3,7 @@ include("header.php"); ?>
 <script src="./assets/js/add-to-cart.js"></script>
 <script src="./assets/js/menu.js"></script>
 <script src="./assets/js/search.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <link rel="stylesheet" href="assets/css/menu.css" />
 
 <!-- Tabs danh mục -->

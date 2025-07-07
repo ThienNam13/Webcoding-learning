@@ -30,6 +30,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
+      // Cuộn mượt khi click tab
+$(document).ready(function () {
+  $('.menu-tabs a[href^="#"]').click(function (e) {
+    e.preventDefault();
+    const target = $(this.getAttribute('href'));
+    if (target.length) {
+      $('html, body').animate({
+        scrollTop: target.offset().top - 80 // Trừ khoảng cách header
+      }, 600); // 600ms là thời gian cuộn
+    }
+  });
+  // Nếu URL có hash sẵn khi load trang thì cuộn luôn
+  const hash = window.location.hash;
+  if (hash) {
+    const target = $(hash);
+    if (target.length) {
+      setTimeout(() => {
+        $('html, body').animate({
+          scrollTop: target.offset().top - 80
+        }, 600);
+      }, 300);
+    }
+  }
+});
+
       // Khởi động lại nút thêm giỏ
       initAddToCart();
     });
