@@ -1,8 +1,6 @@
 <?php
-session_start();
+require_once '../php/db.php';
 require_once 'auth_check.php';
-
-require_once '../php/db.php'; // Kết nối CSDL
 
 // ✅ Lấy ID đơn hàng từ URL
 $order_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;

@@ -1,4 +1,5 @@
 <?php
+session_name('ADMINSESSID');
 session_start();
 require_once __DIR__ . '/../php/db.php';
 

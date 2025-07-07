@@ -39,9 +39,9 @@ if (!preg_match("/^(0|\+84)[0-9]{8,10}$/", $phone)) {
     die("Số điện thoại không hợp lệ!");
 }
 
-if (strlen($address) < 10 || !preg_match("/^\d[\d\/\-]{0,10}\s+[\p{L}\s\d'.\-]{3,}$/u", $address)) {
-    die("Địa chỉ không hợp lệ!");
-}
+// if (strlen($address) < 10 || !preg_match("/^\d[\d\/\-]{0,10}\s+[\p{L}\s\d'.\-]{3,}$/u", $address)) {
+//     die("Địa chỉ không hợp lệ!");
+// }
 
 // Tính tổng tiền
 $shipping_fee = 15000;

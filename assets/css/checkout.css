@@ -143,3 +143,10 @@ input, select, textarea {
 .popup-box button:hover {
   background: #e67e22;
 }
+
+#map {
+  height: 300px;
+  margin-top: 15px;
+  width: 100%;
+  display: none;
+}

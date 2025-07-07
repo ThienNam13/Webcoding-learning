@@ -11,6 +11,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title><?= $pageTitle ?></title>
   <link rel="stylesheet" href="assets/css/checkout.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 </head>
 <body>
 
@@ -35,19 +38,22 @@
       </div>
       <div class="input-group">
         <label for="ward">Phường / Xã</label>
-        <input type="text" id="ward" name="ward" list="ward-list" required placeholder="Chọn phường sau sáp nhập)">
-        <datalist id="ward-list">
-          <option value="Phường Bình Thạnh">
-          <option value="Phường Tân Sơn Nhất">
-          <option value="Phường Cầu Kiệu">
-          <option value="Phường An Nhơn">
-          <option value="Phường Hạnh Thông">
-          <option value="Phường Sài Gòn">
-          <option value="Phường Minh Phụng">
-          <option value="Phường Tân Sơn Hòa">
-          <option value="Phường Phú Nhuận">
-          <option value="Phường An Hội Đông">
-        </datalist>
+        <select id="ward" name="ward" required>
+          <option value="">-- Chọn phường --</option>
+          <option value="Phường Bình Thạnh">Phường Bình Thạnh</option>
+          <option value="Phường Tân Sơn Nhất">Phường Tân Sơn Nhất</option>
+          <option value="Phường Cầu Kiệu">Phường Cầu Kiệu</option>
+          <option value="Phường An Nhơn">Phường An Nhơn</option>
+          <option value="Phường Hạnh Thông">Phường Hạnh Thông</option>
+          <option value="Phường Sài Gòn">Phường Sài Gòn</option>
+          <option value="Phường Minh Phụng">Phường Minh Phụng</option>
+          <option value="Phường Tân Sơn Hòa">Phường Tân Sơn Hòa</option>
+          <option value="Phường Phú Nhuận">Phường Phú Nhuận</option>
+          <option value="Phường An Hội Đông">Phường An Hội Đông</option>
+        </select>
+        <div id="map" style="height: 300px;"></div>
+        <input type="hidden" id="lat" name="lat">
+        <input type="hidden" id="lng" name="lng">
       </div>
       <div class="input-group">
         <label for="region">Khu vực giao</label>

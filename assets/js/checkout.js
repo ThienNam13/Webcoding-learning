@@ -1,3 +1,15 @@
+  const wardCoordinates = {
+    "Phường Bình Thạnh": { lat: 10.8035, lng: 106.7072 },
+    "Phường Tân Sơn Nhất": { lat: 10.8012, lng: 106.6658 },
+    "Phường Cầu Kiệu": { lat: 10.7905, lng: 106.6821 },
+    "Phường An Nhơn": { lat: 10.8275, lng: 106.6789 },
+    "Phường Hạnh Thông": { lat: 10.8322, lng: 106.6765 },
+    "Phường Sài Gòn": { lat: 10.7794, lng: 106.6992 },
+    "Phường Minh Phụng": { lat: 10.7628, lng: 106.6445 },
+    "Phường Tân Sơn Hòa": { lat: 10.7998, lng: 106.6732 },
+    "Phường Phú Nhuận": { lat: 10.7991, lng: 106.6805 },
+    "Phường An Hội Đông": { lat: 10.8346, lng: 106.6781 }
+  };
 document.addEventListener("DOMContentLoaded", () => {
   renderOrderItems();
   initFormValidation();
@@ -53,7 +65,7 @@ function validateForm() {
 
   const validNameRegex = /^(?=.*[\p{L}])[ \p{L}'.-]{4,}$/u;
   const validPhoneRegex = /^(0|\+84)[0-9]{8,10}$/;
-  const validAddressRegex = /^\d[\d\/\-]{0,10}\s+([\p{L}]{2,}\s?){1,}$/u;
+  const validAddressRegex = /^\d[\d\/\-]{0,10}\s+[\p{L}\s'.\-]{3,}$/u;
 
   if (!validNameRegex.test(fullname)) {
     showError("Họ tên không hợp lệ."); return false;
@@ -95,3 +107,41 @@ function submitRealOrder() {
   localStorage.removeItem("cart");
   document.getElementById("checkout-form").submit();
 }
+
+let map;
+let marker;
+
+document.getElementById('ward').addEventListener('change', function() {
+    const wardName = this.value;
+    const coords = wardCoordinates[wardName];
+    if (!coords) return;
+
+    if (!map) {
+        map = L.map('map').setView([coords.lat, coords.lng], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        marker = L.marker([coords.lat, coords.lng], { draggable: true }).addTo(map);
+    } else {
+        map.setView([coords.lat, coords.lng], 15);
+        marker.setLatLng([coords.lat, coords.lng]);
+    }
+
+    document.getElementById("map").style.display = "block";
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 100);
+
+    // Cập nhật hidden input
+    marker.on('dragend', function (e) {
+        const position = e.target.getLatLng();
+        console.log("Tọa độ mới:", position.lat, position.lng);
+        document.getElementById('lat').value = position.lat;
+        document.getElementById('lng').value = position.lng;
+    });
+
+    // Gán mặc định tọa độ
+    document.getElementById('lat').value = coords.lat;
+    document.getElementById('lng').value = coords.lng;
+});

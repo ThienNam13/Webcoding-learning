@@ -35,11 +35,6 @@ $_SESSION['user_id']  = $user['id'];
 $_SESSION['email']    = $email;
 $_SESSION['fullname'] = $user['fullname'];
 
-// Thành công
-$_SESSION['user_id']  = $user['id'];
-$_SESSION['email'] = $email;
-$_SESSION['fullname'] = $user['fullname'];
-
 header('Location: ../../login.php?msg=loginok&popup=1');
 exit;
 

@@ -12,8 +12,6 @@
 </div>
   <?php 
   require_once("../php/db.php");
-  //Kiểm tra quyền admin
-  session_start();
   require_once 'auth_check.php';
   ?>
 

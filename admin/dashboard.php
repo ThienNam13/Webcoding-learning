@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'auth_check.php';
 
 if (isset($_GET['action']) && $_GET['action']==='logout') {

@@ -60,6 +60,7 @@ window.addEventListener("message", (event) => {
       case "exists": message = "Email đã tồn tại!"; break;
       case "invalid_email": message = "Email không hợp lệ!"; break;
       case "notmatch": message = "Mật khẩu không khớp!"; break;
+      case "invalid_fullname": message = "Họ tên không hợp lệ!"; break;
     }
     showToast(message, "#e74c3c");
     return;
@@ -81,7 +82,7 @@ window.addEventListener("message", (event) => {
       iframe.src = "login.php?popup=1";
       iframe.style.height = "420px";
       break;
-
+    
     case "gotoRegister":
       iframe.src = "register.php?popup=1";
       iframe.style.height = "650px";

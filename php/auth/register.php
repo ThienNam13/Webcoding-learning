@@ -9,8 +9,14 @@ $password         =       $_POST['password']        ?? '';
 $confirm_password =       $_POST['confirm_password'] ?? '';
 
 // Validate
+$fullnameRegex = '/^(?=.*[\p{L}])(?=.*\s)[ \p{L}\'.-]{5,}$/u';// Ít nhất 5 ký tự, chỉ chữ cái và khoảng trắng
 $emailRegex    = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
 $passwordRegex = '/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&^_-])[A-Za-z\d@$!%*#?&^_-]{6,}$/';
+
+if (!preg_match($fullnameRegex, $fullname)) {
+    header('Location: ../../register.php?msg=invalid_fullname');
+    exit;
+}
 
 if (!preg_match($emailRegex, $email)) {
     header('Location: ../../register.php?msg=invalid_email');

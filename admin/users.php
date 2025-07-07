@@ -1,7 +1,5 @@
 <?php
-require_once __DIR__ . '/../php/db.php';
-// Check admin role
-session_start();
+require_once '../php/db.php';
 require_once 'auth_check.php';
 // Xử lý filter role
 $roleFilter = $_GET['role'] ?? '';

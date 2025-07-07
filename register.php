@@ -67,9 +67,17 @@ function showToast(message, type = "error") {
 }
 
 document.getElementById("registerForm").addEventListener("submit", function (e) {
+  const fullname = document.getElementById("fullname").value.trim();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirm_password").value;
+
+  const fullnameRegex = /^(?=.*[\p{L}])(?=.*\s)[ \p{L}'.-]{5,}$/u;
+  if (!fullnameRegex.test(fullname)) {
+    showToast("Họ và tên không hợp lệ!", "warning");
+    e.preventDefault();
+    return;
+  }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
@@ -83,10 +91,8 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
     e.preventDefault();
     return;
   }
-
 });
 </script>
-
 
 </body>
 </html>
