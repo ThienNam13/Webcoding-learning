@@ -25,17 +25,24 @@
 
 
 <script>
-  var slideIndex = 0;
-  slideShow();
-
+(function () {
+  let slideIndex = 0;
   function slideShow() {
-    var slide = document.getElementsByClassName("slide");
-    for (var i = 0; i < slide.length; i++) slide[i].style.display = "none";
+    const slide = document.getElementsByClassName("slide");
+    if (!slide.length) return;
+
+    for (let i = 0; i < slide.length; i++) {
+      slide[i].style.display = "none";
+    }
+
     slideIndex++;
     if (slideIndex > slide.length) slideIndex = 1;
     slide[slideIndex - 1].style.display = "block";
     setTimeout(slideShow, 2500);
   }
+
+  document.addEventListener("DOMContentLoaded", slideShow);
+})();
 </script>
 </body>
 </html>

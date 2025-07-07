@@ -9,8 +9,8 @@ function initAddToCart() {
       const gia = parseInt(card.querySelector(".price").dataset.value);
       const id = parseInt(button.dataset.id);
       const hinh_anh = card.querySelector("img").getAttribute("src");
-      
-      console.log("Món thêm:", { id, ten_mon, mo_ta, gia, hinh_anh });
+
+      updateRecentlyViewed(id); // ⭐ Lưu vào cookie khi thêm món
 
       showPopup({ id, ten_mon, mo_ta, gia, hinh_anh });
     });

@@ -93,14 +93,14 @@
   </form>
 </div>
 
-<!-- Popup cảnh báo lỗi-->
+<!-- ✅ Popup cảnh báo dùng chung -->
 <div class="popup-overlay" id="popup-alert" style="display: none;">
   <div class="popup-box">
     <h3>❌ Cảnh báo</h3>
     <p id="popup-message">Nội dung cảnh báo sẽ được thay đổi bằng JS</p>
     <button onclick="closePopup()">Đóng</button>
   </div>
-</div>
+</div> 
 
 <!-- Popup xác nhận đặt hàng -->
 <div class="popup-overlay" id="popup-confirm">

@@ -22,12 +22,10 @@ body{
   align-items: center;
 }
 
-#app {}
+
 
  /* HEADER  */
-#header {
 
-}
 
 /* Nav */
 
@@ -257,7 +255,7 @@ body{
 }
 
 /* Menu */
-.menu{}
+
 
 .container-menu{
   right:0;
