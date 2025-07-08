@@ -19,28 +19,18 @@ $map = [
   <link rel="stylesheet" href="assets/css/form.css" />
 </head>
 <body>
-<?php
-$messageCode = $_GET['msg'] ?? null;
-$popup = isset($_GET['popup']);
+  <?php
+  $messageCode = $_GET['msg'] ?? null;
+  if ($messageCode && isset($map[$messageCode])) {
+    echo '<script>window.parent.postMessage("auth-msg:' . $messageCode . '", "*");</script>';
+  }
 
-if ($messageCode && isset($map[$messageCode])) {
-    if (!$popup) {
-        echo '<p style="color:green;text-align:center;">' . htmlspecialchars($map[$messageCode]) . '</p>';
-    } else {
-        echo '<script>window.parent.postMessage("auth-msg:' . $messageCode . '", "*");</script>';
-    }
-}
-
-// Đăng ký thành công
-if ($messageCode === 'welcome') {
-    if ($popup) {
-        echo '<script>window.parent.postMessage("register-success", "*");</script>';
-    } else {
-        // Nếu không phải popup thì tự chuyển qua login.php
-        echo '<script>setTimeout(() => window.location.href = "login.php", 1200);</script>';
-    }
-}
-?>
+ // Đăng ký thành công
+  if ($messageCode === 'welcome') {
+    echo '<script>window.parent.postMessage("register-success", "*");</script>';
+  }
+  ?>
+  
     <div class="form-container">
       <h2>Đăng ký</h2>
       <form id="registerForm" method="POST" action="php/auth/register.php">
@@ -53,7 +43,7 @@ if ($messageCode === 'welcome') {
         </p>
         <button type="submit">Tạo tài khoản</button>
         <div class="form-link">
-          Đã có tài khoản? <a href="login.php<?= empty($_GET['popup']) ? '' : '?popup=1' ?>" onclick="<?= empty($_GET['popup']) ? '' : "window.parent.postMessage('gotoLogin', '*'); return false;" ?>">Đăng nhập</a>
+          Đã có tài khoản? <a href="login.php?popup=1" onclick="window.parent.postMessage('gotoLogin', '*'); return false;">Đăng nhập</a>
         </div>
       </form>
     </div>

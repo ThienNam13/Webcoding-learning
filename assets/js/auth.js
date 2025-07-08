@@ -70,7 +70,7 @@ window.addEventListener("message", (event) => {
     case "login-success":
       showToast("Đăng nhập thành công!");
       closeAuthPopup();
-      const redirectURL = sessionStorage.getItem("redirectAfterLogin") || "index.php";
+      const redirectURL = sessionStorage.getItem("redirectAfterLogin");
       setTimeout(() => {
         window.location.href = redirectURL;
         sessionStorage.removeItem("redirectAfterLogin");
