@@ -26,7 +26,7 @@
         <a href="menu.php#burger-com-my-y"><img src="./assets/img/food/burger-com-myy.jpg" alt=""><div class="type-name"><b>Burger - Cơm - Mỳ Ý</b></div></a>
       </div>
       <div class="type-food">
-        <a href="menu.php#khuyen-mai"><img src="./assets/img/food/thucannhe.jpg" alt=""><div class="type-name"><b>Khuyến Mãi</b></div></a>
+        <a href="menu.php#khuyen-mai"><img src="./assets/img/food/muc_ran.jpg" alt=""><div class="type-name"><b>Khuyến Mãi</b></div></a>
       </div>
       <div class="type-food">
         <a href="menu.php#trang-mieng"><img src="./assets/img/food/trangmieng.jpg" alt=""><div class="type-name"><b>Tráng Miệng</b></div></a>
@@ -51,6 +51,9 @@ function getFoodById($id, $link) {
 
 $recentViewed = isset($_COOKIE['recentViewedItems']) ? explode(",", $_COOKIE['recentViewedItems']) : [];
 
+// Loại bỏ ID trùng nhau
+$recentViewed = array_unique($recentViewed);
+
 if (!empty($recentViewed)) {
   echo "<div class='food-title'><h2>Đã xem gần đây</h2><div class='food-container'>";
   foreach ($recentViewed as $id) {
@@ -70,7 +73,6 @@ if (!empty($recentViewed)) {
 ?>
 
   </div>
-
   <!-- Giới thiệu -->
   <div class="introduction">
     <div class="container-intro">
@@ -80,7 +82,7 @@ if (!empty($recentViewed)) {
       <p>Hiện tại, cửa hàng hỗ trợ giao hàng nhanh trong khoảng 15 phút đến các quận lân cận như Bình Thạnh, Gò Vấp, Thủ Đức, Quận 1, Quận 2.</p>
     </div>
   </div>
-</div>
+
 
 <!-- Popup đăng nhập / đăng ký -->
 <div id="popupFrame" style="display:none">
@@ -93,6 +95,5 @@ if (!empty($recentViewed)) {
 </div>
 
 <script src="assets/js/auth.js"></script>
-<!--<script src="assets/js/main.js"></script> -->
 
 <?php include("footer.php"); ?>

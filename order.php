@@ -1,9 +1,9 @@
 <?php
-session_start();
 require_once("php/db.php");
+include("header.php");
 if (empty($_SESSION['user_id'])) {
     // Chưa đăng nhập → chuyển về login
-    header('Location: login.php');
+    header('Location: history.php');
     exit;
 }
 
@@ -54,7 +54,6 @@ $stmt2->close();
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Đặt hàng thành công</title>
-  <?php include("header.php"); ?>
   <link rel="stylesheet" href="assets/css/order.css" />
   <link rel="stylesheet" href="./assets/themify-icons-font/themify-icons/themify-icons.css">
   <script src="assets/js/order.js"></script>

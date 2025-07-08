@@ -64,11 +64,11 @@ function validateForm() {
   const address = document.getElementById("address").value.trim();
 
   const validNameRegex = /^(?=.*[\p{L}])[ \p{L}'.-]{4,}$/u;
-  const validPhoneRegex = /^(0|\+84)[0-9]{8,10}$/;
+  const validPhoneRegex = /^(0\d{9}|\+84\d{9})$/;
   const validAddressRegex = /^\d[\d\/\-]{0,10}\s+[\p{L}\s'.\-]{3,}$/u;
 
   if (!validNameRegex.test(fullname)) {
-    showError("Họ tên không hợp lệ."); return false;
+    showError("Họ tên chưa đầy đủ."); return false;
   }
   if (!validPhoneRegex.test(phone)) {
     showError("Số điện thoại không hợp lệ."); return false;

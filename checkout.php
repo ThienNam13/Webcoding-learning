@@ -1,8 +1,13 @@
 <?php
   $pageTitle = "Thanh toán đơn hàng";
   session_start();
+  require_once("php/db.php");
+  if (empty($_SESSION['user_id'])) {
+    // Chưa đăng nhập → chuyển về login
+    header('Location: login.php');
+    exit;
+}
 
-  $user_id = $_SESSION['user_id'] ?? null;
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -106,12 +111,21 @@
 <div class="popup-overlay" id="popup-confirm">
   <div class="popup-box">
     <h3>Xác nhận thanh toán</h3>
-    <p>Bạn có chắc chắn muốn đặt đơn hàng này không?</p>
+    <p>Bạn có chắc muốn đặt đơn hàng này không?</p>
     <button class="btn-confirm" onclick="submitRealOrder()">Xác nhận</button>
     <button class="btn-cancel" onclick="closeConfirm()">Hủy</button>
   </div>
 </div>
-
+<script>
+// Kiểm tra cart khi load trang
+document.addEventListener("DOMContentLoaded", () => {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  if (!cart.length) {
+    // alert("Bạn chưa chọn món nào!");
+    window.location.href = "menu.php?msg=no_cart";
+  }
+});
+</script>
 <script src="assets/js/checkout.js"></script>
 </body>
 </html>

@@ -1,11 +1,15 @@
-<?php $title = "Thực đơn | KFJoli"; $page = 'menu'; 
-include("header.php"); ?>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="assets/js/cookie.js"></script>
 <script src="assets/js/menu.js"></script>   
 <script src="assets/js/add-to-cart.js"></script> 
 <script src="assets/js/search.js"></script> 
-
+<?php
+$title = "Thực đơn | KFJoli"; $page = 'menu'; 
+include("header.php"); 
+if (!empty($_GET['msg']) && $_GET['msg'] === 'no_cart') {
+    echo "<script>alert('Bạn chưa chọn món nào!');</script>";
+}
+?>
 <!-- Tabs danh mục -->
 <div id="extra-nav">
   <div class="container-extra">
@@ -24,7 +28,7 @@ include("header.php"); ?>
               <div class="shopping-cart tab">
                   <a href="cart.php"><i class="icon-cart ti-shopping-cart"></i></a>
               </div>
-          <?php endif; ?>
+      <?php endif; ?>
     </div>
   </div>
 </div>

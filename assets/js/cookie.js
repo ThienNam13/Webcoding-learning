@@ -1,17 +1,17 @@
-// 📁 File: assets/js/cookie.js
-
 // Lưu cookie với thời hạn tùy chọn (mặc định: 7 ngày)
 function setCookie(name, value, days = 7) {
     const d = new Date();
     d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
-    document.cookie = `${name}=${value}; expires=${d.toUTCString()}; path=/`;
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${d.toUTCString()}; path=/`;
 }
 
 // Lấy giá trị cookie theo tên
 function getCookie(name) {
     const cookies = document.cookie.split('; ');
     for (let c of cookies) {
-        const [key, val] = c.split('=');
+        const index = c.indexOf('=');
+        const key = c.substring(0, index);
+        const val = decodeURIComponent(c.substring(index + 1));
         if (key === name) return val;
     }
     return "";
@@ -30,7 +30,7 @@ function updateRecentlyViewed(itemId) {
 
     // Đưa itemId lên đầu và loại bỏ trùng lặp
     items = [itemId, ...items.filter(id => id !== itemId)];
-    if (items.length > 10) items = items.slice(0, 10); // Giới hạn 10 món gần nhất
+    if (items.length > 10) items = items.slice(0, 10);
 
-    document.cookie = `${key}=${items.join(',')}; path=/`;
+    setCookie(key, items.join(','), 7);
 }

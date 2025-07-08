@@ -95,7 +95,6 @@ body{
 
 .account{
   padding: 10px 10px;
-  z-index: 10000;
 }
 
 #btnLogin {
@@ -210,7 +209,7 @@ body{
 } 
 
 .shopping-cart .icon-cart{
-padding: 0;
+  padding: 0;
   color:#fff;
   font-size: 25px;
 }
@@ -433,7 +432,7 @@ padding: 0;
   transform: translate(-50%, -50%);
   width: 380px;
   background: #fff;
-border-radius: 12px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
