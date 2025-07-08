@@ -2,6 +2,7 @@
 session_start();
 require_once __DIR__ . '/../db.php';
 
+$isPopup = !empty($_POST['popup']);   // check form gửi lên
 $email = trim($_POST['email']?? '');
 $password = $_POST['password']?? '';
 
@@ -35,6 +36,9 @@ $_SESSION['user_id']  = $user['id'];
 $_SESSION['email']    = $email;
 $_SESSION['fullname'] = $user['fullname'];
 
-header('Location: ../../login.php?msg=loginok&popup=1');
+if ($isPopup) {
+    header('Location: ../../login.php?msg=loginok&popup=1');
+} else {
+    header('Location: ../../index.php');
+}
 exit;
-
