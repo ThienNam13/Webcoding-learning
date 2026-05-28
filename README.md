@@ -1,4 +1,4 @@
-<img width="681" height="716" alt="image" src="https://github.com/user-attachments/assets/af5fc48e-43f2-4d67-b1c6-b1897b3236f8" /># KFJoli - Website Đặt Đồ Ăn Trực Tuyến
+
 
 ## Giới thiệu
 KFJoli là hệ thống website đặt đồ ăn trực tuyến được xây dựng trong môn học Lập Trình Web.  
