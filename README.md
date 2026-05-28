@@ -1,4 +1,4 @@
-# KFJoli - Website Đặt Đồ Ăn Trực Tuyến
+<img width="681" height="716" alt="image" src="https://github.com/user-attachments/assets/af5fc48e-43f2-4d67-b1c6-b1897b3236f8" /># KFJoli - Website Đặt Đồ Ăn Trực Tuyến
 
 ## Giới thiệu
 KFJoli là hệ thống website đặt đồ ăn trực tuyến được xây dựng trong môn học Lập Trình Web.  
@@ -6,7 +6,14 @@ Dự án hỗ trợ người dùng xem thực đơn, thêm món vào giỏ hàng
 Hệ thống cũng cung cấp trang quản trị dành cho admin để quản lý món ăn, đơn hàng và tài khoản người dùng.
 
 ---
+## Demo
+<img width="681" height="716" alt="image" src="https://github.com/user-attachments/assets/e87a3e5b-c2ee-48ab-8454-96e17696ff77" />
+<img width="753" height="357" alt="image" src="https://github.com/user-attachments/assets/4516444f-f067-4162-a540-dc63c4129511" />
+<img width="753" height="375" alt="image" src="https://github.com/user-attachments/assets/49ba6b8d-146d-430e-b919-86ade41522b1" />
+<img width="753" height="560" alt="image" src="https://github.com/user-attachments/assets/d75fbc4f-cc7f-45e2-961e-8e282dcc5435" />
+<img width="753" height="90" alt="image" src="https://github.com/user-attachments/assets/f47a73e2-5acf-4b66-aacc-a225acbf2ec9" />
 
+---
 ## Mục tiêu dự án
 - Xây dựng website đặt món ăn đơn giản, dễ sử dụng
 - Hỗ trợ quản lý đơn hàng hiệu quả
